@@ -1,0 +1,20 @@
+// Setup
+@import 'setup/typography';
+
+// Basics
+@import 'basic/base';
+
+// Pages
+@import 'components/pages/home/home';
+@import 'components/pages/home/banner';
+@import 'components/pages/home/datePicker';
+@import 'components/pages/home/card';
+@import 'components/pages/browse/browse';
+@import 'components/pages/browse/browseList';
+@import 'components/pages/rental-detail/rentalDetail';
+@import 'components/pages/rental-detail/gallery';
+@import 'components/pages/rental-detail/lightbox';
+
+// Layout
+@import 'components/layout/header';
+@import 'components/layout/footer';

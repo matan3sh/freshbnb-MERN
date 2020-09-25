@@ -1,0 +1,20 @@
+.browse__info {
+  padding: 20px;
+
+  p {
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  h1 {
+    font-family: Cereal-Bold;
+    margin-bottom: 30px;
+  }
+
+  button {
+    border-radius: 30px;
+    text-transform: inherit;
+    margin: 5px;
+  }
+}

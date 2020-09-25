@@ -1,0 +1,16 @@
+export { default as SearchIcon } from '@material-ui/icons/Search';
+export { default as LanguageIcon } from '@material-ui/icons/Language';
+export { default as ExpandMoreIcon } from '@material-ui/icons/ExpandMore';
+export { default as PeopleIcon } from '@material-ui/icons/People';
+export { default as FavoriteBorderIcon } from '@material-ui/icons/FavoriteBorder';
+export { default as StarIcon } from '@material-ui/icons/Star';
+export { default as AcUnitIcon } from '@material-ui/icons/AcUnit';
+export { default as WhatshotIcon } from '@material-ui/icons/Whatshot';
+export { default as WifiTetheringIcon } from '@material-ui/icons/WifiTethering';
+export { default as WorkIcon } from '@material-ui/icons/Work';
+export { default as PoolIcon } from '@material-ui/icons/Pool';
+export { default as SportsEsportsIcon } from '@material-ui/icons/SportsEsports';
+export { default as FitnessCenterIcon } from '@material-ui/icons/FitnessCenter';
+export { default as BeachAccessIcon } from '@material-ui/icons/BeachAccess';
+export { default as AirportShuttleIcon } from '@material-ui/icons/AirportShuttle';
+export { default as KeyboardBackspaceIcon } from '@material-ui/icons/KeyboardBackspace';

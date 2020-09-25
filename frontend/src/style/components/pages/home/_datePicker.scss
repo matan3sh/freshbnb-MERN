@@ -1,0 +1,50 @@
+.datePicker {
+  position: absolute;
+  top: 35px;
+  // left: 25%;
+  width: 100vw;
+  z-index: 99;
+}
+
+.datePicker__container {
+  background-color: #fff;
+  width: 558px;
+  height: 175px;
+
+  h2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 558px;
+    padding: 10px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    top: 380px;
+  }
+
+  input {
+    width: 539px;
+    padding: 20px;
+    position: absolute;
+    left: 0;
+    height: 30px;
+    top: 420px;
+    border: none;
+  }
+
+  button {
+    position: absolute;
+    left: 0;
+    top: 480px;
+    text-transform: inherit !important;
+    background-color: #ff7779;
+    color: white;
+    width: 558px;
+
+    &:hover {
+      background-color: #fff;
+      color: #ff7779;
+    }
+  }
+}
