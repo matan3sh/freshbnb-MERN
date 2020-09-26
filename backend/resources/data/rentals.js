@@ -12,7 +12,7 @@ const rentals = [
     street: '5th avenue',
     category: 'apartment',
     image:
-      'https://www.expatkings.com/wp-content/uploads/2018/10/Airbnb-rental-tips.-Hostmaker-1-620x349.jpg',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_wbPYTxQPMcBh7SPzLFActXnP3uhifeVT_g&usqp=CAU',
     numOfRooms: 1,
     shared: false,
     description: 'Very nice apartment in center of the city of new york.',
@@ -50,7 +50,7 @@ const rentals = [
     street: 'Jackson street',
     category: 'apartment',
     image:
-      'https://www.expatkings.com/wp-content/uploads/2018/10/Airbnb-rental-tips.-Hostmaker-1-620x349.jpg',
+      'https://www.smartertravel.com/uploads/2017/07/Untitled-design-8.jpg',
     numOfRooms: 3,
     shared: true,
     description: 'Greate apartment in center of paris',

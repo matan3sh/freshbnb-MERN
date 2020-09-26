@@ -10,11 +10,6 @@ export default function reducer(state = initialState, action) {
         ...state,
         rentals: action.payload,
       };
-    case 'ADD_RENTAL':
-      return {
-        ...state,
-        rentals: [action.payload, ...state.rentals],
-      };
     case 'SET_RENTAL':
       return {
         ...state,
@@ -24,6 +19,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         rental: null,
+      };
+    case 'ADD_RENTAL':
+      return {
+        ...state,
+        rentals: [action.payload, ...state.rentals],
       };
     default:
       return state;

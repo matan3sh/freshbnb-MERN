@@ -38,6 +38,8 @@
 }
 
 .rentalDetail__location {
+  display: flex;
+  align-items: center;
   margin-left: 10px;
   color: rgb(113, 113, 113);
   text-decoration: underline;
@@ -216,5 +218,35 @@
         font-size: 0.8rem;
       }
     }
+  }
+  .rentalDetail__location {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .rentalDetail {
+    margin: 1rem;
+  }
+
+  .rentalDetail__assets {
+    div {
+      span {
+        font-size: 0.7rem;
+      }
+    }
+  }
+
+  .rentalDetail__body-description {
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .rentalDetail__location {
+    font-size: 12px;
+  }
+  .rentalDetail__assets {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

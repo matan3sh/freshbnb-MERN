@@ -1,13 +1,12 @@
-.browseList .browseItem:not(:last-child) {
-  border-bottom: 1px solid lightgray;
-}
-
 .browseItem {
   display: flex;
   position: relative;
   margin: 20px;
   padding: 20px;
   cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 12px !important;
+  border: #f2f2f2 1px solid;
+  border-radius: 10px;
 }
 
 .browseItem:hover {
@@ -86,21 +85,23 @@
   font-family: Cereal-Bold;
 }
 
-.browseItem__category,
+.browseItem__category {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #ff385c !important;
+}
+
 .browseItem__city {
   text-transform: capitalize;
 }
 
-.type- {
-  &apartment {
-    color: #a72da3 !important;
-  }
-  &house {
-    color: #bf1818 !important;
-  }
-  &condo {
-    color: #d68000 !important;
-  }
+.browseItem__city {
+  display: flex;
+  align-items: center;
+}
+
+.browseItem__city-icon {
+  font-size: 16px !important;
 }
 
 @media screen and (max-width: 740px) {

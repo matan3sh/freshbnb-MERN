@@ -2,11 +2,13 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { loadRental, clearRental } from 'store/rentals/actions';
 
+import { Spinner } from 'components/shared';
+
 import RentalDetailGallery from './RentalDetailGallery';
-import RentalDetailAssets from './RentalDetailAssets';
 import RentalDetailNavigation from './RentalDetailNavigation';
 import RentalDetailHeader from './RentalDetailHeader';
 import RentalDetailCard from './RentalDetailCard';
+import RentalInfo from './RentalInfo';
 
 const RentalDetail = ({ match, loadRental, clearRental, rental }) => {
   useEffect(() => {
@@ -20,26 +22,35 @@ const RentalDetail = ({ match, loadRental, clearRental, rental }) => {
 
   return (
     <div className='rentalDetail'>
-      <RentalDetailNavigation />
-      <RentalDetailHeader
-        title={rental?.title}
-        star={rental?.star}
-        city={rental?.city}
-      />
-      <RentalDetailGallery coverImage={rental?.image} images={rental?.images} />
-      <div className='rentalDetail__body'>
-        <div className='rentalDetail__body-left'>
-          <p className='rentalDetail__body-description'>
-            {rental?.description}
-          </p>
-          <small>
-            {rental?.shared && 'Shared'} {rental?.category}
-          </small>
-          <RentalDetailAssets />
-          <hr />
-        </div>
-        <RentalDetailCard dailyPrice={rental?.dailyPrice} star={rental?.star} />
-      </div>
+      {rental ? (
+        <>
+          <RentalDetailNavigation />
+          <RentalDetailHeader
+            title={rental?.title}
+            star={rental?.star}
+            city={rental?.city}
+            street={rental?.street}
+          />
+          <RentalDetailGallery
+            coverImage={rental?.image}
+            images={rental?.images}
+          />
+          <div className='rentalDetail__body'>
+            <RentalInfo
+              description={rental?.description}
+              category={rental?.category}
+              shared={rental?.shared}
+              numOfRooms={rental?.numOfRooms}
+            />
+            <RentalDetailCard
+              dailyPrice={rental?.dailyPrice}
+              star={rental?.star}
+            />
+          </div>
+        </>
+      ) : (
+        <Spinner />
+      )}
     </div>
   );
 };
@@ -47,6 +58,7 @@ const RentalDetail = ({ match, loadRental, clearRental, rental }) => {
 const mapStateToProps = (state) => ({
   rental: state.mainApp.rental,
 });
+
 const mapDispatchToProps = {
   loadRental,
   clearRental,

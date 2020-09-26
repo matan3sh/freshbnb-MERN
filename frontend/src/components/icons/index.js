@@ -14,3 +14,4 @@ export { default as FitnessCenterIcon } from '@material-ui/icons/FitnessCenter';
 export { default as BeachAccessIcon } from '@material-ui/icons/BeachAccess';
 export { default as AirportShuttleIcon } from '@material-ui/icons/AirportShuttle';
 export { default as KeyboardBackspaceIcon } from '@material-ui/icons/KeyboardBackspace';
+export { default as RoomIcon } from '@material-ui/icons/Room';

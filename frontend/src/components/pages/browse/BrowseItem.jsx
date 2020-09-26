@@ -1,25 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { FavoriteBorderIcon, StarIcon } from 'components/icons';
+import { FavoriteBorderIcon, StarIcon, RoomIcon } from 'components/icons';
 
 const BrowseItem = ({ rental }) => {
   return (
-    <Link to={`/rentals/${rental.id}`}>
+    <Link to={`/rentals/${rental._id}`} id='item'>
       <div className='browseItem'>
         <img src={rental.image} alt='' />
         <FavoriteBorderIcon className='browseItem__heart' />
         <div className='browseItem__info'>
           <div className='browseItem__infoTop'>
             <p className='browseItem__city'>
-              {rental.city}{' '}
-              <span className={`browseItem__category type-${rental.category}`}>
-                {rental.shared ? 'Shared ' : ''}
-                {rental.category}
-              </span>
+              <RoomIcon className='browseItem__city-icon' />
+              {rental.street}, {rental.city}{' '}
             </p>
 
             <h3>{rental.title}</h3>
+            <p className='browseItem__category'>
+              {rental.shared ? 'Shared ' : ''}
+              {rental.category}
+            </p>
             <p>____</p>
             <p>{rental.description}</p>
           </div>

@@ -1,8 +1,11 @@
-import { rentals } from 'data/RentalsDB';
+import axios from 'axios';
+
+const BASE_URL = 'http://localhost:3000/api';
 
 const query = async () => {
   try {
-    return await Promise.resolve(rentals);
+    const res = await axios.get(`${BASE_URL}/rentals`);
+    return res.data;
   } catch (error) {
     console.log(error);
   }
@@ -10,8 +13,8 @@ const query = async () => {
 
 const getById = async (id) => {
   try {
-    const res = rentals.find((rental) => rental._id === id);
-    return Promise.resolve(res);
+    const res = await axios.get(`${BASE_URL}/rentals/${id}`);
+    return res.data;
   } catch (err) {
     console.log(err);
   }

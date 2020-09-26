@@ -9,14 +9,6 @@ export const loadRentals = () => async (dispatch) => {
   }
 };
 
-export const addRental = (rental) => async (dispatch) => {
-  try {
-    dispatch({ type: 'ADD_RENTAL', payload: rental });
-  } catch (err) {
-    console.log(err);
-  }
-};
-
 export const loadRental = (rentalId) => async (dispatch) => {
   try {
     const rental = await rentalsServices.getById(rentalId);
@@ -31,5 +23,13 @@ export const clearRental = () => async (dispatch) => {
     dispatch({ type: 'CLEAR_RENTAL' });
   } catch (error) {
     console.log(error);
+  }
+};
+
+export const addRental = (rental) => async (dispatch) => {
+  try {
+    dispatch({ type: 'ADD_RENTAL', payload: rental });
+  } catch (err) {
+    console.log(err);
   }
 };
