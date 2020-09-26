@@ -1,53 +1,36 @@
 const Rental = require('../../models/rental');
 
 query = async (res) => {
-  try {
-    await Rental.find({}, (error, foundRentals) => res.json(foundRentals));
-  } catch (err) {
-    console.log('Error cannot fetch rentals');
-    res.json({
-      errors: [
-        {
-          title: 'Rental Error',
-          message: 'Cannot retrive rentals data!',
-        },
-      ],
-    });
-  }
+  await Rental.find({}, (error, foundRentals) => {
+    if (error)
+      return Rental.sendError(res, {
+        status: 422,
+        detail: 'Cannot retrive rentals data!',
+      });
+    res.json(foundRentals);
+  });
 };
 
 getById = async (id, res) => {
-  try {
-    await Rental.findById(id, (error, foundRental) => res.json(foundRental));
-  } catch (err) {
-    console.log(`Error While fetching rental with id of ${id}`);
-    res.json({
-      errors: [
-        {
-          title: 'Rental Error',
-          message: 'Cannot retrive rentals data!',
-        },
-      ],
-    });
-  }
+  await Rental.findById(id, (error, foundRental) => {
+    if (error)
+      return Rental.sendError(res, {
+        status: 422,
+        detail: 'Cannot retrive rental data!',
+      });
+    res.json(foundRental);
+  });
 };
 
 add = async (rental, res) => {
-  try {
-    await Rental.create(rental, (error, createdRental) =>
-      res.json(createdRental)
-    );
-  } catch (err) {
-    console.log(`Error While adding rental`);
-    return res.json({
-      errors: [
-        {
-          title: 'Rental Error',
-          message: `Rental ${rental.title} can't be added`,
-        },
-      ],
-    });
-  }
+  await Rental.create(rental, (error, createdRental) => {
+    if (error)
+      return Rental.sendError(res, {
+        status: 422,
+        detail: `Rental ${rental.title} can't be added`,
+      });
+    res.json(createdRental);
+  });
 };
 
 module.exports = {
