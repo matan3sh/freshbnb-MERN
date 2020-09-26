@@ -1,0 +1,39 @@
+.auth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem auto;
+  height: 75vh;
+  width: 355px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.auth__header {
+  display: flex;
+
+  p {
+    text-align: center;
+    font-size: 24px;
+    font-family: Cereal-Bold;
+  }
+}
+
+.auth__body {
+  form {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    p {
+      margin-top: 1rem;
+      font-size: 14px;
+      text-align: center;
+
+      a {
+        color: rgb(230, 30, 77);
+      }
+    }
+  }
+}

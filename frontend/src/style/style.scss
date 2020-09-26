@@ -3,6 +3,8 @@
 
 // Basics
 @import 'basic/base';
+@import 'basic/button';
+@import 'basic/input';
 
 // Pages
 @import 'components/pages/home/home';
@@ -14,7 +16,7 @@
 @import 'components/pages/rental-detail/rentalDetail';
 @import 'components/pages/rental-detail/gallery';
 @import 'components/pages/rental-detail/lightbox';
-@import 'components/pages/auth/login';
+@import 'components/pages/auth/auth';
 
 // Layout
 @import 'components/layout/header';
