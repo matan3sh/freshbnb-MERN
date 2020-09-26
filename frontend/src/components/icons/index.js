@@ -15,3 +15,6 @@ export { default as BeachAccessIcon } from '@material-ui/icons/BeachAccess';
 export { default as AirportShuttleIcon } from '@material-ui/icons/AirportShuttle';
 export { default as KeyboardBackspaceIcon } from '@material-ui/icons/KeyboardBackspace';
 export { default as RoomIcon } from '@material-ui/icons/Room';
+export { default as HomeIcon } from '@material-ui/icons/Home';
+export { default as ApartmentIcon } from '@material-ui/icons/Apartment';
+export { default as EmojiPeopleIcon } from '@material-ui/icons/EmojiPeople';

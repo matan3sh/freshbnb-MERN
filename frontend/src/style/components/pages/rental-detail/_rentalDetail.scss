@@ -188,7 +188,7 @@
 
 @media screen and (max-width: 1400px) {
   .rentalDetail {
-    margin: 1rem 5rem;
+    margin: 1rem 4rem;
   }
   .rentalDetail__body {
     flex-direction: column;
@@ -221,6 +221,12 @@
   }
   .rentalDetail__location {
     font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 1110px) {
+  .rentalDetail__body-right {
+    margin-bottom: 4rem;
   }
 }
 

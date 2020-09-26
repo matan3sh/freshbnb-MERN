@@ -25,8 +25,8 @@ const Header = () => {
           </Link>
         </p>
         <div className='header__right-icons'>
-          <LanguageIcon />
-          <ExpandMoreIcon />
+          <LanguageIcon className='header__right-icons-lang' />
+          <ExpandMoreIcon className='header__right-icons-plus' />
         </div>
         <Avatar className='header__avatar' />
       </div>

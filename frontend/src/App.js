@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { Header, Footer } from 'components/layout';
+import { Header, BottomNav, Footer } from 'components/layout';
 import { Home, Browse, Login, Register, RentalDetail } from 'components/pages';
 import { ScrollToTop } from 'components/shared';
 
@@ -17,6 +17,7 @@ function App() {
         <Route exact path='/rentals/:id' component={RentalDetail} />
         <Route exact path='/' component={Home} />
       </Switch>
+      <BottomNav />
       <Footer />
     </Router>
   );
