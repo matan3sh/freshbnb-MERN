@@ -13,31 +13,33 @@ const Login = () => {
   };
 
   return (
-    <div className='auth'>
-      <div className='auth__header'>
-        <p>Log in</p>
-      </div>
-      <div className='auth__body'>
-        <form onSubmit={onSubmit} className='login__form'>
-          <div className='inputs'>
-            <Input
-              type='email'
-              value={email}
-              placeholder='Email'
-              onChange={setEmail}
-            />
-            <Input
-              type='password'
-              value={password}
-              placeholder='Password'
-              onChange={setPassword}
-            />
-          </div>
-          <p>
-            You dont have account? <Link to='/register'>Register</Link>{' '}
-          </p>
-          <Button type='submit' text='Continue' />
-        </form>
+    <div className='auth__container'>
+      <div className='auth '>
+        <div className='auth__header'>
+          <p>Log in</p>
+        </div>
+        <div className='auth__body'>
+          <form onSubmit={onSubmit} className='login__form'>
+            <div className='inputs'>
+              <Input
+                type='email'
+                value={email}
+                placeholder='Email'
+                onChange={setEmail}
+              />
+              <Input
+                type='password'
+                value={password}
+                placeholder='Password'
+                onChange={setPassword}
+              />
+            </div>
+            <p>
+              You dont have account? <Link to='/register'>Register</Link>{' '}
+            </p>
+            <Button type='submit' text='Continue' />
+          </form>
+        </div>
       </div>
     </div>
   );

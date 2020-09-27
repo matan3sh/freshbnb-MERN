@@ -1,9 +1,13 @@
+.auth__container {
+  height: 77vh;
+}
+
 .auth {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 1rem auto;
-  height: 75vh;
+  height: 50vh;
   width: 355px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
   border: 1px solid rgb(221, 221, 221);
