@@ -11,6 +11,9 @@ app.use(bodyParser.json());
 const rentalRoutes = require('./api/rental/rental.routes');
 app.use('/api/rentals', rentalRoutes);
 
+const userRoutes = require('./api/user/user.routes');
+app.use('/api/users', userRoutes);
+
 // Connect Database
 connectDB();
 
