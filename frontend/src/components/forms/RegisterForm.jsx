@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { sameAs } from 'helpers/validators';
 
 import { Button } from 'components/app';
 
@@ -8,7 +9,7 @@ import { Button } from 'components/app';
 const EMAIL_PATTERN = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 const RegisterForm = ({ onSubmit }) => {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors, getValues } = useForm();
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -62,7 +63,11 @@ const RegisterForm = ({ onSubmit }) => {
         </div>
         <div className='input'>
           <input
-            ref={register({ required: true, minLength: 6 })}
+            ref={register({
+              required: true,
+              minLength: 6,
+              validate: { sameAs: sameAs('password', getValues) },
+            })}
             type='password'
             name='passwordConfirm'
             id='passwordConfirm'
@@ -74,6 +79,8 @@ const RegisterForm = ({ onSubmit }) => {
                 'Password Confirmation is Required'}
               {errors.passwordConfirm.type === 'minLength' &&
                 'Password Confirmation must 6 characters minimum'}
+              {errors.passwordConfirm.type === 'sameAs' &&
+                'Password Confirmation must match with Password'}
             </div>
           )}
         </div>

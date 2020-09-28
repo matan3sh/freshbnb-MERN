@@ -22,10 +22,11 @@
 
 .input__notValid {
   color: red;
-  font-size: 8px;
+  font-size: 7px;
   text-transform: uppercase;
   letter-spacing: 1px;
   text-align: right;
   position: relative;
-  bottom: 18px;
+  bottom: 16px;
+  margin-right: 2px;
 }
