@@ -46,7 +46,7 @@ const LoginForm = ({ onSubmit }) => {
         </div>
       </div>
       <p>
-        You dont have account? <Link to='/register'>Register</Link>{' '}
+        Dont have an account? <Link to='/register'>Register</Link>{' '}
       </p>
       <Button type='submit' text='Continue' />
     </form>
