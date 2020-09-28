@@ -4,8 +4,16 @@ const connectDB = require('./config/db');
 
 const app = express();
 
+const auth = require('./middleware/auth');
+
 // Middleware
 app.use(bodyParser.json());
+
+app.get('/api/secret', auth, (req, res) => {
+  return res.json({
+    message: `Super Secret Message to: ${res.locals.user.username}`,
+  });
+});
 
 // Routes
 const rentalRoutes = require('./api/rental/rental.routes');
