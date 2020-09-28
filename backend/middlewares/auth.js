@@ -21,7 +21,7 @@ module.exports = function (req, res, next) {
   if (!decodedToken)
     _authError(res, 'Invalid Token', 'Token is malformed!', 401);
   User.findById(decodedToken.sub, (error, foundUser) => {
-    if (error) _authError(res, 'DB Error', 'Ooops, something was wrong!', 422);
+    if (error) res.mongoError(error);
     if (foundUser) {
       res.locals.user = foundUser;
       next();

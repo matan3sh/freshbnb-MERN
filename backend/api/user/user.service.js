@@ -15,7 +15,7 @@ register = async (userCredentials, res) => {
       'Password is not matching Confirmation Password!'
     );
   User.findOne({ email }, (error, existingUser) => {
-    if (error) _handleError(res, 'DB Error!', 'Ooops, something went wrong!');
+    if (error) return res.mongoError(error);
     if (existingUser)
       _handleError(
         res,
@@ -25,7 +25,7 @@ register = async (userCredentials, res) => {
   });
   const user = new User({ username, email, password });
   user.save((error) => {
-    if (error) _handleError(res, 'DB Error!', 'Ooops, something went wrong!');
+    if (error) return res.mongoError(error);
     return res.json({ status: 'Registered' });
   });
 };
@@ -35,7 +35,7 @@ login = async (userCredentials, res) => {
   if (!password || !email)
     _handleError(res, 'Missing Data!', 'Email or Password is missing!');
   User.findOne({ email }, (err, foundUser) => {
-    if (err) _handleError(res, 'DB Error!', 'Ooops, something went wrong!');
+    if (err) res.mongoError(error);
     if (!foundUser)
       _handleError(
         res,

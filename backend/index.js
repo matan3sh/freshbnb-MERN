@@ -1,13 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const { provideErrorHandler } = require('./middlewares/errorHandler');
 const connectDB = require('./config/db');
 
 const app = express();
 
-const auth = require('./middleware/auth');
+const auth = require('./middlewares/auth');
 
 // Middleware
 app.use(bodyParser.json());
+app.use(provideErrorHandler);
 
 app.get('/api/secret', auth, (req, res) => {
   return res.json({
