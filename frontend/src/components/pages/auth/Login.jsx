@@ -1,9 +1,11 @@
 import React from 'react';
+
 import { useHistory } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import { withAuth } from 'providers/AuthProvider';
 
 import { LoginForm } from 'components/forms';
+
+import { toast } from 'react-toastify';
 
 const Login = ({ auth }) => {
   const history = useHistory();
@@ -11,10 +13,7 @@ const Login = ({ auth }) => {
   const onLoginUser = (userData) => {
     auth
       .login(userData)
-      .then((token) => {
-        console.log(token);
-        history.push('/');
-      })
+      .then((token) => history.push('/'))
       .catch((errors) => {
         errors.map((error) => toast.error(error.detail));
       });

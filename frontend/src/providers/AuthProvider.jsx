@@ -13,15 +13,12 @@ const AuthBaseProvider = ({ children, dispatch }) => {
   };
 
   const login = (userData) => {
-    console.log(dispatch);
     return loginUser(userData).then((token) => {
       localStorage.setItem('freshbnb_token', token);
       const decodedToken = decodeToken(token);
+      dispatch({ type: 'USER_AUTHENTICATED', payload: decodedToken });
       return token;
     });
-    // .catch((errors) => {
-    //   errors.map((error) => toast.error(error.detail));
-    // });
   };
 
   const authApi = {

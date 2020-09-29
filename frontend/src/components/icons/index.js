@@ -18,3 +18,6 @@ export { default as RoomIcon } from '@material-ui/icons/Room';
 export { default as HomeIcon } from '@material-ui/icons/Home';
 export { default as ApartmentIcon } from '@material-ui/icons/Apartment';
 export { default as EmojiPeopleIcon } from '@material-ui/icons/EmojiPeople';
+export { default as PersonIcon } from '@material-ui/icons/Person';
+export { default as SettingsApplicationsIcon } from '@material-ui/icons/SettingsApplications';
+export { default as ExitToAppIcon } from '@material-ui/icons/ExitToApp';
