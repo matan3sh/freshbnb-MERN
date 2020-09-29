@@ -12,6 +12,7 @@
     "axios": "^0.20.0",
     "date-fns": "^2.16.1",
     "http-proxy-middleware": "^1.0.5",
+    "jsonwebtoken": "^8.5.1",
     "react": "^16.13.1",
     "react-date-range": "^1.0.3",
     "react-dom": "^16.13.1",
@@ -19,6 +20,7 @@
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "react-toastify": "^6.0.8",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0"

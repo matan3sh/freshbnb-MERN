@@ -4,10 +4,17 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Header, BottomNav, Footer } from 'components/layout';
 import { Home, Browse, Login, Register, RentalDetail } from 'components/pages';
 import { ScrollToTop } from 'components/shared';
+import { ToastContainer, Zoom } from 'react-toastify';
 
 function App() {
   return (
     <Router>
+      <ToastContainer
+        draggable={false}
+        transition={Zoom}
+        autoClose={5000}
+        position='top-center'
+      />
       <Header />
       <ScrollToTop />
       <Switch>

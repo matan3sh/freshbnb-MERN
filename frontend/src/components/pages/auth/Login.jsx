@@ -1,15 +1,28 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { withAuth } from 'providers/AuthProvider';
 
 import { LoginForm } from 'components/forms';
 
-const Login = () => {
+const Login = ({ auth }) => {
+  const history = useHistory();
+
   const onLoginUser = (userData) => {
-    alert(JSON.stringify(userData));
+    auth
+      .login(userData)
+      .then((token) => {
+        console.log(token);
+        history.push('/');
+      })
+      .catch((errors) => {
+        errors.map((error) => toast.error(error.detail));
+      });
   };
 
   return (
     <div className='auth__container'>
-      <div className='auth '>
+      <div className='auth'>
         <div className='auth__header'>
           <p>Log in</p>
         </div>
@@ -21,4 +34,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default withAuth(Login);

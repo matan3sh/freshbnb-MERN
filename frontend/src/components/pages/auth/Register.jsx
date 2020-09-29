@@ -1,10 +1,20 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
+import { registerUser } from 'services/authServices';
 
 import { RegisterForm } from 'components/forms';
 
 const Register = () => {
+  const history = useHistory();
+
   const onRegisterUser = (userData) => {
-    alert(JSON.stringify(userData));
+    registerUser(userData)
+      .then(() => history.push('/login'))
+      .catch((errors) => {
+        errors.map((error) => toast.error(error.detail));
+      });
   };
 
   return (
