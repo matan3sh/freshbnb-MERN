@@ -1,4 +1,17 @@
-const rentals = [
+exports.users = [
+  {
+    username: 'Test User',
+    email: 'test@gmail.com',
+    password: 'testtest',
+  },
+  {
+    username: 'Test User2',
+    email: 'test2@gmail.com',
+    password: 'testtest2',
+  },
+];
+
+exports.rentals = [
   {
     images: [
       'https://a0.muscache.com/im/pictures/dcd13ab1-0f7c-4022-8b39-ad6b9588f4d1.jpg?im_w=720',
@@ -57,5 +70,3 @@ const rentals = [
     dailyPrice: 75,
   },
 ];
-
-module.exports = rentals;

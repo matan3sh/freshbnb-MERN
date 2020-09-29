@@ -7,21 +7,22 @@ const secret = config.get('jwtSecret');
 register = async (userCredentials, res) => {
   const { username, email, password, passwordConfirm } = userCredentials;
   if (!password || !email)
-    _handleError(res, 'Missing Data!', 'Email or Password is missing!');
+    return res.sendApiError({
+      title: 'Missing Data!',
+      detail: 'Email or Password is missing!',
+    });
   if (password !== passwordConfirm)
-    _handleError(
-      res,
-      'Invalid Password!',
-      'Password is not matching Confirmation Password!'
-    );
+    return res.sendApiError({
+      title: 'Invalid Password!',
+      detail: 'Password is not matching Confirmation Password!',
+    });
   User.findOne({ email }, (error, existingUser) => {
     if (error) return res.mongoError(error);
     if (existingUser)
-      _handleError(
-        res,
-        'Invalid Email!',
-        'User with this email already exist!'
-      );
+      return res.sendApiError({
+        title: 'Invalid Email!',
+        detail: 'User with this email already exist!',
+      });
   });
   const user = new User({ username, email, password });
   user.save((error) => {
@@ -33,14 +34,17 @@ register = async (userCredentials, res) => {
 login = async (userCredentials, res) => {
   const { email, password } = userCredentials;
   if (!password || !email)
-    _handleError(res, 'Missing Data!', 'Email or Password is missing!');
+    return res.sendApiError({
+      title: 'Missing Data!',
+      detail: 'Email or Password is Missing!',
+    });
   User.findOne({ email }, (err, foundUser) => {
     if (err) res.mongoError(error);
     if (!foundUser)
-      _handleError(
-        res,
-        "Invalid Email!', 'User with provided email doesn't exists"
-      );
+      return res.sendApiError({
+        title: 'Invalid Email!',
+        detail: "User with provided email doesn't exists",
+      });
     if (foundUser.hasSamePassword(password)) {
       const token = jwt.sign(
         {
@@ -53,19 +57,12 @@ login = async (userCredentials, res) => {
       );
       return res.json(token);
     } else
-      _handleError(res, 'Invalid Password!', 'Provided Password is wrong!');
+      return res.sendApiError({
+        title: 'Invalid Password!',
+        detail: 'Provided Password is wrong!',
+      });
   });
 };
-
-_handleError = (res, title, detail) =>
-  res.status(422).send({
-    errors: [
-      {
-        title,
-        detail,
-      },
-    ],
-  });
 
 module.exports = {
   register,

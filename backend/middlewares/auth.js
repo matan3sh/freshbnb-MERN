@@ -10,28 +10,17 @@ module.exports = function (req, res, next) {
 
   // Check if not token
   if (!token)
-    _authError(
-      res,
-      'Invalid Token',
-      'Cannot get access, please authorized!',
-      401
-    );
+    _authError(res, 'Invalid Token', 'Cannot get access, please authorized!');
 
   const decodedToken = _parseToken(token);
-  if (!decodedToken)
-    _authError(res, 'Invalid Token', 'Token is malformed!', 401);
+  if (!decodedToken) _authError(res, 'Invalid Token', 'Token is malformed!');
   User.findById(decodedToken.sub, (error, foundUser) => {
     if (error) res.mongoError(error);
     if (foundUser) {
       res.locals.user = foundUser;
       next();
     } else
-      _authError(
-        res,
-        'Invalid Token',
-        'Cannot get access, please authorized!',
-        401
-      );
+      _authError(res, 'Invalid Token', 'Cannot get access, please authorized!');
   });
 };
 
@@ -43,7 +32,7 @@ _parseToken = (token) => {
   }
 };
 
-_authError = (res, title, detail, status) =>
+_authError = (res, title, detail, status = 401) =>
   res.status(status).send({
     errors: [{ title, detail }],
   });
