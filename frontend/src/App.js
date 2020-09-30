@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
+import { useAuth } from 'providers/AuthProvider';
 import { Header, BottomNav, Footer } from 'components/layout';
 import { Home, Browse, Login, Register, RentalDetail } from 'components/pages';
 import { ScrollToTop } from 'components/shared';
 import { ToastContainer, Zoom } from 'react-toastify';
 
-function App() {
+const App = () => {
+  const authService = useAuth();
+  useEffect(() => {
+    authService.checkAuthState();
+  }, [authService]);
+
   return (
     <Router>
       <ToastContainer
@@ -28,6 +33,6 @@ function App() {
       <Footer />
     </Router>
   );
-}
+};
 
 export default App;

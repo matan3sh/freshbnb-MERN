@@ -1,16 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import jwt from 'jsonwebtoken';
+import moment from 'moment';
 
 import { loginUser } from 'services/authServices';
 
-const { createContext } = React;
+const { createContext, useContext } = React;
 const AuthContext = createContext(null);
 
 const AuthBaseProvider = ({ children, dispatch }) => {
-  const decodeToken = (token) => {
-    return jwt.decode(token);
+  const checkAuthState = () => {
+    const decodedToken = decodeToken(getToken());
+    if (decodedToken && moment().isBefore(getExpiration(decodedToken))) {
+      dispatch({ type: 'USER_AUTHENTICATED', payload: decodedToken });
+    }
   };
+
+  const getExpiration = (decodedToken) => moment.unix(decodedToken.exp);
+
+  const getToken = () => localStorage.getItem('freshbnb_token');
+
+  const decodeToken = (token) => jwt.decode(token);
 
   const login = (userData) => {
     return loginUser(userData).then((token) => {
@@ -23,6 +33,7 @@ const AuthBaseProvider = ({ children, dispatch }) => {
 
   const authApi = {
     login,
+    checkAuthState,
   };
 
   return (
@@ -31,6 +42,8 @@ const AuthBaseProvider = ({ children, dispatch }) => {
 };
 
 export const AuthProvider = connect()(AuthBaseProvider);
+
+export const useAuth = () => useContext(AuthContext);
 
 export const withAuth = (Component) => (props) => (
   <AuthContext.Consumer>

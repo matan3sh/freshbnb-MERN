@@ -12,12 +12,12 @@ const Dropdown = () => {
     <div className='dropdown'>
       <ul>
         <li>
-          <Link to='/profile' exact>
+          <Link to='/profile'>
             <PersonIcon /> Profile
           </Link>
         </li>
         <li>
-          <Link to='/messages' exact>
+          <Link to='/messages'>
             <SettingsApplicationsIcon />
             Settings
           </Link>

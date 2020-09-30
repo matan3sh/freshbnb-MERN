@@ -37,12 +37,13 @@ const Header = ({ user, isAuth }) => {
           <ExpandMoreIcon className='header__right-icons-plus' />
         </div>
         {isAuth && user && (
-          <div className='header__username'>
+          <div
+            className='header__username'
+            onMouseOver={() => setOpenDropdown(true)}
+            onMouseLeave={() => setOpenDropdown(false)}
+          >
             <span>{user.username}</span>
-            <Avatar
-              className='header__avatar'
-              onClick={() => setOpenDropdown(!openDropdown)}
-            />
+            <Avatar className='header__avatar' />
             {openDropdown && <Dropdown />}
           </div>
         )}
