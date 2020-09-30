@@ -45,6 +45,8 @@ const RentalDetail = ({ match, loadRental, clearRental, rental }) => {
             <RentalDetailCard
               dailyPrice={rental?.dailyPrice}
               star={rental?.star}
+              city={rental?.city}
+              street={rental?.street}
             />
           </div>
         </>
