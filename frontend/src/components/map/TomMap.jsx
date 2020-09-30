@@ -6,13 +6,14 @@ const TomMap = ({ location }) => {
   const mapService = useMap();
 
   const getGeoLocation = useCallback((location) => {
+    const fullAdress = `${location.city},${location.street}`;
     mapService
-      .requestGeoLocation(location)
+      .getGeoPosition(fullAdress)
       .then((position) => {
         mapService.setCenter(map.current, position);
         mapService.addMarker(map.current, position);
       })
-      .catch((err) => console.log(err));
+      .catch((error) => mapService.addPopupMessage(map.current, error));
     // eslint-disable-next-line
   }, []);
 
