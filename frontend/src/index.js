@@ -2,9 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from 'App';
 
+import { MapProvider } from 'providers/MapProvider';
 import { AuthProvider } from 'providers/AuthProvider';
 import { Provider } from 'react-redux';
 import store from 'store';
+
+import { apiKey } from 'config';
 
 import * as serviceWorker from 'serviceWorker';
 import 'style/style.css';
@@ -14,7 +17,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <AuthProvider>
-        <App />
+        <MapProvider apiKey={apiKey}>
+          <App />
+        </MapProvider>
       </AuthProvider>
     </Provider>
   </React.StrictMode>,

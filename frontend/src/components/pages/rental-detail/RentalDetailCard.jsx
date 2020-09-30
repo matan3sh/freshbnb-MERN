@@ -1,5 +1,6 @@
 import React from 'react';
 import { StarIcon } from 'components/icons';
+import TomMap from 'components/map/TomMap';
 
 const RentalDetailCard = ({ dailyPrice, star }) => {
   return (
@@ -12,11 +13,7 @@ const RentalDetailCard = ({ dailyPrice, star }) => {
           <span>(186)</span>
         </div>
       </div>
-      <img
-        src='https://cdn.filestackcontent.com/qfzkumr0RE27pdC8tqeH'
-        alt=''
-        className='rentalDetail__body-map'
-      />
+      <TomMap />
       <button className='rentalDetail__priceCard-button'>Reserve</button>
     </div>
   );
