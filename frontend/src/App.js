@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import ProtectedRoute from 'routes/ProtectedRoute';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useAuth } from 'providers/AuthProvider';
 import { Header, BottomNav, Footer } from 'components/layout';
@@ -31,7 +32,7 @@ const App = () => {
       <Header />
       <ScrollToTop />
       <Switch>
-        <Route exact path='/profile' component={Profile} />
+        <ProtectedRoute exact path='/profile' component={Profile} />
         <Route exact path='/browse' component={Browse} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/register' component={Register} />

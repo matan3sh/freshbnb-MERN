@@ -26,7 +26,7 @@ const Dropdown = () => {
           </Link>
         </li>
         <li>
-          <a href='#/' onClick={() => authService.logout()}>
+          <a href='/' onClick={() => authService.logout()}>
             <ExitToAppIcon />
             Logout
           </a>

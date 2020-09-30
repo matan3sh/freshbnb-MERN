@@ -85,7 +85,7 @@ const BottomNav = ({ user, isAuth }) => {
         <span className='navBottom__text'>Settings</span>
       </NavLink>
       <a
-        href='/#'
+        href='/'
         className='navBottom__link'
         onClick={() => authService.logout()}
       >

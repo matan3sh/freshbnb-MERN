@@ -9,12 +9,22 @@ const { createContext, useContext } = React;
 const AuthContext = createContext(null);
 
 const AuthBaseProvider = ({ children, dispatch }) => {
+  const isAuthenticated = () => {
+    const token = getToken();
+    if (!token) return false;
+    const decodedToken = decodeToken(token);
+    return isTokenValid(decodedToken);
+  };
+
   const checkAuthState = () => {
     const decodedToken = decodeToken(getToken());
-    if (decodedToken && moment().isBefore(getExpiration(decodedToken))) {
+    if (decodedToken && isTokenValid(decodedToken)) {
       dispatch({ type: 'USER_AUTHENTICATED', payload: decodedToken });
     }
   };
+
+  const isTokenValid = (decodedToken) =>
+    decodedToken && moment().isBefore(getExpiration(decodedToken));
 
   const getExpiration = (decodedToken) => moment.unix(decodedToken.exp);
 
@@ -40,6 +50,7 @@ const AuthBaseProvider = ({ children, dispatch }) => {
     login,
     logout,
     checkAuthState,
+    isAuthenticated,
   };
 
   return (
