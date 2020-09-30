@@ -6,6 +6,7 @@ import {
   PersonIcon,
   SettingsApplicationsIcon,
   ExitToAppIcon,
+  BusinessIcon,
 } from 'components/icons';
 
 const Dropdown = () => {
@@ -20,9 +21,15 @@ const Dropdown = () => {
           </Link>
         </li>
         <li>
-          <Link to='/messages'>
+          <Link to='/rentals/new'>
+            <BusinessIcon />
+            Add Rental
+          </Link>
+        </li>
+        <li>
+          <Link to='/manage'>
             <SettingsApplicationsIcon />
-            Settings
+            Manage Rentals
           </Link>
         </li>
         <li>

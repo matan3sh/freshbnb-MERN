@@ -22,3 +22,4 @@ export { default as PersonIcon } from '@material-ui/icons/Person';
 export { default as SettingsApplicationsIcon } from '@material-ui/icons/SettingsApplications';
 export { default as ExitToAppIcon } from '@material-ui/icons/ExitToApp';
 export { default as WebIcon } from '@material-ui/icons/Web';
+export { default as BusinessIcon } from '@material-ui/icons/Business';
