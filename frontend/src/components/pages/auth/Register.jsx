@@ -11,7 +11,10 @@ const Register = () => {
 
   const onRegisterUser = (userData) => {
     registerUser(userData)
-      .then(() => history.push('/login'))
+      .then(() => {
+        history.push('/login');
+        toast.success('You have successfully registered');
+      })
       .catch((errors) => {
         errors.map((error) => toast.error(error.detail));
       });
