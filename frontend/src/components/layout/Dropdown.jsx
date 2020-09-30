@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from 'providers/AuthProvider';
 
 import {
   PersonIcon,
@@ -8,6 +9,8 @@ import {
 } from 'components/icons';
 
 const Dropdown = () => {
+  const authService = useAuth();
+
   return (
     <div className='dropdown'>
       <ul>
@@ -23,7 +26,7 @@ const Dropdown = () => {
           </Link>
         </li>
         <li>
-          <a href='#/' onClick={() => console.log('logout')}>
+          <a href='#/' onClick={() => authService.logout()}>
             <ExitToAppIcon />
             Logout
           </a>

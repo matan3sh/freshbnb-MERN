@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { useAuth } from 'providers/AuthProvider';
+
 import {
   HomeIcon,
   ApartmentIcon,
@@ -12,6 +14,8 @@ import {
 } from 'components/icons';
 
 const BottomNav = ({ user, isAuth }) => {
+  const authService = useAuth();
+
   const getGuestNav = () => (
     <>
       <NavLink
@@ -83,7 +87,7 @@ const BottomNav = ({ user, isAuth }) => {
       <a
         href='/#'
         className='navBottom__link'
-        onClick={() => console.log('Logged Out')}
+        onClick={() => authService.logout()}
       >
         <ExitToAppIcon />
         <span className='navBottom__text'>Logout</span>

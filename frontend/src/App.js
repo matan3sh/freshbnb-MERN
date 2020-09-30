@@ -2,12 +2,20 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useAuth } from 'providers/AuthProvider';
 import { Header, BottomNav, Footer } from 'components/layout';
-import { Home, Browse, Login, Register, RentalDetail } from 'components/pages';
+import {
+  Home,
+  Browse,
+  Login,
+  Register,
+  RentalDetail,
+  Profile,
+} from 'components/pages';
 import { ScrollToTop } from 'components/shared';
 import { ToastContainer, Zoom } from 'react-toastify';
 
 const App = () => {
   const authService = useAuth();
+
   useEffect(() => {
     authService.checkAuthState();
   }, [authService]);
@@ -23,6 +31,7 @@ const App = () => {
       <Header />
       <ScrollToTop />
       <Switch>
+        <Route exact path='/profile' component={Profile} />
         <Route exact path='/browse' component={Browse} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/register' component={Register} />

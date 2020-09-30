@@ -22,6 +22,11 @@ const AuthBaseProvider = ({ children, dispatch }) => {
 
   const decodeToken = (token) => jwt.decode(token);
 
+  const logout = () => {
+    localStorage.removeItem('freshbnb_token');
+    dispatch({ type: 'USER_LOGOUT' });
+  };
+
   const login = (userData) => {
     return loginUser(userData).then((token) => {
       localStorage.setItem('freshbnb_token', token);
@@ -33,6 +38,7 @@ const AuthBaseProvider = ({ children, dispatch }) => {
 
   const authApi = {
     login,
+    logout,
     checkAuthState,
   };
 

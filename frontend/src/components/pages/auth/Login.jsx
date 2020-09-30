@@ -13,7 +13,7 @@ const Login = ({ auth }) => {
   const onLoginUser = (userData) => {
     auth
       .login(userData)
-      .then((token) => history.push('/'))
+      .then((_) => history.push('/'))
       .catch((errors) => {
         errors.map((error) => toast.error(error.detail));
       });
