@@ -18,11 +18,6 @@ app.get('/api/secret', auth, (req, res) => {
   });
 });
 
-// Models
-require('./models/rental');
-require('./models/user');
-require('./models/booking');
-
 // Routes
 const rentalRoutes = require('./api/rental/rental.routes');
 app.use('/api/rentals', rentalRoutes);

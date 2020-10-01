@@ -1,42 +1,27 @@
 const Booking = require('../../models/booking');
 
-// query = async (res) => {
-//   await Rental.find({}, (error, foundRentals) => {
-//     if (error)
-//       return Rental.sendError(res, {
-//         status: 422,
-//         detail: 'Cannot retrive rentals data!',
-//       });
-//     res.json(foundRentals);
-//   });
-// };
+add = async (bookingData, res) => {
+  const booking = new Booking(bookingData);
+  booking.user = res.locals.user;
+  Booking.find({ rental: booking.rental }, (error, rentalBookings) => {
+    if (error) return res.mongoError(error);
+    const isValid = _checkIfBookingIsValid(booking, rentalBookings);
+    if (isValid) {
+      booking.save((error, savedBooking) => {
+        if (error) return res.mongoError(error);
+        return res.json({
+          startAt: savedBooking.startAt,
+          endAt: savedBooking.endAt,
+        });
+      });
+    } else return res.json({ message: 'Booking is NOT Created!' });
+  });
+};
 
-// getById = async (id, res) => {
-//   await Rental.findById(id, (error, foundRental) => {
-//     if (error)
-//       return Rental.sendError(res, {
-//         status: 422,
-//         detail: 'Cannot retrive rental data!',
-//       });
-//     res.json(foundRental);
-//   });
-// };
-
-add = async (booking, res) => {
-  // rental.owner = res.locals.user;
-  // await Rental.create(rental, (error, createdRental) => {
-  //   if (error)
-  //     return Rental.sendError(res, {
-  //       status: 422,
-  //       detail: `Rental ${rental.title} can't be added`,
-  //     });
-  //   res.json(createdRental);
-  // });
-  return res.json({ message: 'Booking is Created!' });
+_checkIfBookingIsValid = (booking, rentalBookings) => {
+  return true;
 };
 
 module.exports = {
-  // query,
-  // getById,
   add,
 };
