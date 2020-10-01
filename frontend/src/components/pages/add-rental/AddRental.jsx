@@ -2,7 +2,6 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addRental } from 'store/rentals/actions';
-
 import { AddRentalForm } from 'components/forms';
 
 const NewRental = ({ addRental }) => {
@@ -10,9 +9,37 @@ const NewRental = ({ addRental }) => {
 
   const onAddNewRental = (rentalData) => {
     rentalData.shared = 'true' ? true : false;
-    addRental(rentalData)
-      .then(() => history.push('/browse'))
-      .catch((error) => console.log(error));
+    const {
+      title,
+      city,
+      street,
+      category,
+      image,
+      numOfRooms,
+      description,
+      shared,
+      dailyPrice,
+    } = rentalData;
+    const images = [
+      rentalData.image1,
+      rentalData.image2,
+      rentalData.image3,
+      rentalData.image4,
+    ];
+    const rentalToAdd = {
+      title,
+      city,
+      street,
+      category,
+      image,
+      images,
+      numOfRooms: parseInt(numOfRooms),
+      shared,
+      description,
+      dailyPrice: parseInt(dailyPrice),
+    };
+    addRental(rentalToAdd);
+    history.push('/');
   };
 
   return (

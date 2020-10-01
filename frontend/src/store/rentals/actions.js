@@ -30,7 +30,7 @@ export const addRental = (rental) => async (dispatch) => {
   try {
     const newRental = rentalsServices.add(rental);
     dispatch({ type: 'ADD_RENTAL', payload: newRental });
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
   }
 };

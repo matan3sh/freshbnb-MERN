@@ -1,10 +1,9 @@
-import axios from 'axios';
-
-const BASE_URL = 'http://localhost:3000/api';
+import axiosService from './axiosService';
+const { freshbnbAxios } = axiosService;
 
 const query = async () => {
   try {
-    const res = await axios.get(`${BASE_URL}/rentals`);
+    const res = await freshbnbAxios.get(`/rentals`);
     return res.data;
   } catch (error) {
     console.log(error);
@@ -13,7 +12,7 @@ const query = async () => {
 
 const getById = async (id) => {
   try {
-    const res = await axios.get(`${BASE_URL}/rentals/${id}`);
+    const res = await freshbnbAxios.get(`/rentals/${id}`);
     return res.data;
   } catch (error) {
     console.log(error);
@@ -22,7 +21,7 @@ const getById = async (id) => {
 
 const add = async (rental) => {
   try {
-    const res = await axios.post(`${BASE_URL}/rentals`, rental);
+    const res = await freshbnbAxios.post('/rentals', rental);
     return res.data;
   } catch (error) {
     console.log(error);
