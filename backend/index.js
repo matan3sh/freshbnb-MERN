@@ -11,11 +11,17 @@ const auth = require('./middlewares/auth');
 app.use(bodyParser.json());
 app.use(provideErrorHandler);
 
+// Auth Middleware Exampel
 app.get('/api/secret', auth, (req, res) => {
   return res.json({
     message: `Super Secret Message to: ${res.locals.user.username}`,
   });
 });
+
+// Models
+require('./models/rental');
+require('./models/user');
+require('./models/booking');
 
 // Routes
 const rentalRoutes = require('./api/rental/rental.routes');
@@ -23,6 +29,9 @@ app.use('/api/rentals', rentalRoutes);
 
 const userRoutes = require('./api/user/user.routes');
 app.use('/api/users', userRoutes);
+
+const bookingRoutes = require('./api/booking/booking.routes');
+app.use('/api/bookings', bookingRoutes);
 
 // Connect Database
 connectDB();
