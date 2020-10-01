@@ -23,6 +23,7 @@ const rentalSchema = new Schema({
   dailyPrice: { type: Number, required: true },
   star: { type: Number, default: 0 },
   createdAt: { type: Date, default: Date.now },
+  owner: { type: Schema.Types.ObjectId, ref: 'User' },
 });
 
 rentalSchema.statics.sendError = function (res, config) {

@@ -23,7 +23,7 @@ export default function reducer(state = initialState, action) {
     case 'ADD_RENTAL':
       return {
         ...state,
-        rentals: [action.payload, ...state.rentals],
+        rentals: [...state.rentals, action.payload],
       };
     default:
       return state;

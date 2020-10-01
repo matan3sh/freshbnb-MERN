@@ -23,6 +23,7 @@ getById = async (id, res) => {
 };
 
 add = async (rental, res) => {
+  rental.owner = res.locals.user;
   await Rental.create(rental, (error, createdRental) => {
     if (error)
       return Rental.sendError(res, {

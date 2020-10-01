@@ -15,6 +15,7 @@ body {
   font-family: Cereal, sans-serif;
   font-size: 1rem;
   transition: 0.5s;
+  overflow-x: hidden;
 }
 
 ul {
@@ -30,4 +31,23 @@ a {
 
 *:focus {
   outline: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
 }

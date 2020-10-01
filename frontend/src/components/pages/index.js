@@ -4,4 +4,4 @@ export { default as Login } from './auth/Login';
 export { default as Register } from './auth/Register';
 export { default as RentalDetail } from './rental-detail/RentalDetail';
 export { default as Profile } from './profile/Profile';
-export { default as NewRental } from './new-rental/NewRental';
+export { default as AddRental } from './add-rental/AddRental';

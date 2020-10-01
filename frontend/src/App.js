@@ -11,7 +11,7 @@ import {
   Register,
   RentalDetail,
   Profile,
-  NewRental,
+  AddRental,
 } from 'components/pages';
 import { ScrollToTop } from 'components/shared';
 import { ToastContainer, Zoom } from 'react-toastify';
@@ -38,7 +38,7 @@ const App = () => {
         <Route exact path='/browse' component={Browse} />
         <GuestRoute exact path='/login' component={Login} />
         <GuestRoute exact path='/register' component={Register} />
-        <ProtectedRoute exact path='/rentals/new' component={NewRental} />
+        <ProtectedRoute exact path='/rentals/add' component={AddRental} />
         <Route exact path='/rentals/:id' component={RentalDetail} />
         <Route exact path='/' component={Home} />
       </Switch>

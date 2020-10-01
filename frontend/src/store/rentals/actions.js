@@ -28,7 +28,8 @@ export const clearRental = () => async (dispatch) => {
 
 export const addRental = (rental) => async (dispatch) => {
   try {
-    dispatch({ type: 'ADD_RENTAL', payload: rental });
+    const newRental = rentalsServices.add(rental);
+    dispatch({ type: 'ADD_RENTAL', payload: newRental });
   } catch (err) {
     console.log(err);
   }

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { useHistory } from 'react-router-dom';
 import { withAuth } from 'providers/AuthProvider';
 

@@ -50,7 +50,7 @@ const BottomNav = ({ user, isAuth }) => {
 
   const getUserNav = () => (
     <>
-      <NavLink
+      {/* <NavLink
         to='/'
         exact
         className='navBottom__link'
@@ -58,7 +58,7 @@ const BottomNav = ({ user, isAuth }) => {
       >
         <HomeIcon />
         <span className='navBottom__text'>Home</span>
-      </NavLink>
+      </NavLink> */}
       <NavLink
         to='/browse'
         className='navBottom__link'
@@ -77,7 +77,7 @@ const BottomNav = ({ user, isAuth }) => {
         <span className='navBottom__text'>Profile</span>
       </NavLink>
       <NavLink
-        to='/rentals/new'
+        to='/rentals/add'
         exact
         className='navBottom__link'
         activeClassName='navBottom__active'
@@ -86,7 +86,7 @@ const BottomNav = ({ user, isAuth }) => {
         <span className='navBottom__text'>Add Rental</span>
       </NavLink>
       <NavLink
-        to='/settings'
+        to='/manage'
         exact
         className='navBottom__link'
         activeClassName='navBottom__active'

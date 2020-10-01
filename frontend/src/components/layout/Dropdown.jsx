@@ -21,7 +21,7 @@ const Dropdown = () => {
           </Link>
         </li>
         <li>
-          <Link to='/rentals/new'>
+          <Link to='/rentals/add'>
             <BusinessIcon />
             Add Rental
           </Link>

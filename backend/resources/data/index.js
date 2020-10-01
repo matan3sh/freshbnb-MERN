@@ -1,13 +1,20 @@
+const mongoose = require('mongoose');
+
+const user1Id = mongoose.Types.ObjectId();
+const user2Id = mongoose.Types.ObjectId();
+
 exports.users = [
   {
+    _id: user1Id,
     username: 'Test User',
     email: 'test@gmail.com',
     password: 'testtest',
   },
   {
-    username: 'Test User2',
-    email: 'test2@gmail.com',
-    password: 'testtest2',
+    id: user2Id,
+    username: 'matan3sh',
+    email: 'matan3sh@gmail.com',
+    password: '123456',
   },
 ];
 
@@ -30,6 +37,7 @@ exports.rentals = [
     shared: false,
     description: 'Very nice apartment in center of the city of new york.',
     dailyPrice: 94,
+    owner: user2Id,
   },
   {
     images: [
@@ -49,6 +57,7 @@ exports.rentals = [
     shared: true,
     description: 'Very nice condo new the golden gate',
     dailyPrice: 105,
+    owner: user1Id,
   },
   {
     images: [
@@ -68,5 +77,6 @@ exports.rentals = [
     shared: true,
     description: 'Greate apartment in center of paris',
     dailyPrice: 75,
+    owner: user2Id,
   },
 ];

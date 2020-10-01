@@ -2,9 +2,12 @@
   border: 1px solid rgb(221, 221, 221);
   border-radius: 12px;
   .input {
-    height: 50px;
-    input {
-      height: 56px;
+    height: 100%;
+    input,
+    textarea,
+    select,
+    input[type='number'] {
+      height: 100%;
       width: 100%;
       border: none;
       outline: none;
@@ -12,6 +15,7 @@
       padding: 10px 100px 12px 10px;
       background-color: transparent;
       color: inherit;
+      font-family: Cereal, sans-serif;
     }
   }
 }

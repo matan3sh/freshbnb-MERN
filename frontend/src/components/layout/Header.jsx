@@ -9,7 +9,6 @@ import logo from 'assets/img/logo.png';
 
 const Header = ({ user, isAuth }) => {
   const [openDropdown, setOpenDropdown] = useState(false);
-
   return (
     <div className='header'>
       <Link to='/'>
@@ -39,8 +38,9 @@ const Header = ({ user, isAuth }) => {
         {isAuth && user && (
           <div
             className='header__username'
-            onMouseOver={() => setOpenDropdown(true)}
-            onMouseLeave={() => setOpenDropdown(false)}
+            onClick={() => setOpenDropdown(!openDropdown)}
+            // onMouseOver={() => setOpenDropdown(true)}
+            // onMouseLeave={() => setOpenDropdown(false)}
           >
             <span>{user.username}</span>
             <Avatar className='header__avatar' />

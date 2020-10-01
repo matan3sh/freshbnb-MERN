@@ -23,3 +23,8 @@ export { default as SettingsApplicationsIcon } from '@material-ui/icons/Settings
 export { default as ExitToAppIcon } from '@material-ui/icons/ExitToApp';
 export { default as WebIcon } from '@material-ui/icons/Web';
 export { default as BusinessIcon } from '@material-ui/icons/Business';
+export { default as LocalAtmIcon } from '@material-ui/icons/LocalAtm';
+export { default as LocationCityIcon } from '@material-ui/icons/LocationCity';
+export { default as StreetviewIcon } from '@material-ui/icons/Streetview';
+export { default as ImageIcon } from '@material-ui/icons/Image';
+export { default as BurstModeIcon } from '@material-ui/icons/BurstMode';
