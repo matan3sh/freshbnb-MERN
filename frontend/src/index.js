@@ -13,6 +13,7 @@ import * as serviceWorker from 'serviceWorker';
 import 'style/style.css';
 import 'react-toastify/dist/ReactToastify.css';
 import '@tomtom-international/web-sdk-maps/dist/maps.css';
+import 'bootstrap-daterangepicker/daterangepicker.css';
 
 ReactDOM.render(
   <React.StrictMode>

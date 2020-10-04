@@ -178,6 +178,32 @@
   }
 }
 
+.rentalDetail__specs {
+  display: flex;
+  height: 40px;
+  margin: 1rem auto;
+  align-items: center;
+  justify-content: center;
+
+  input {
+    height: 100%;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 12px;
+    outline: none;
+    padding: 10px;
+    color: inherit;
+    font-family: Cereal, sans-serif;
+  }
+  #dates {
+    width: 110%;
+  }
+
+  input[type='number'] {
+    width: 35%;
+    margin-left: 30px;
+  }
+}
+
 @media screen and (max-width: 1400px) {
   .rentalDetail {
     margin: 1rem 4rem;
