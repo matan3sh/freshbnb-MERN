@@ -15,6 +15,7 @@
     "config": "^3.3.2",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.0",
     "mongoose": "^5.10.7",
     "nodemon": "^2.0.4"
   }
