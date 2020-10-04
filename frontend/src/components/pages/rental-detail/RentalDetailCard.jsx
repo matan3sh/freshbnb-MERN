@@ -1,16 +1,23 @@
 import React, { useRef, useState } from 'react';
+import { addBooking } from 'store/bookings/actions';
+
 import DateRangePicker from 'react-bootstrap-daterangepicker';
-import moment from 'moment';
 
 import RentalModal from './RentalModal';
 import { StarIcon } from 'components/icons';
 import TomMap from 'components/map/TomMap';
 
-const RentalDetailCard = ({ dailyPrice, star, city, street }) => {
+import Moment from 'moment';
+import { extendMoment } from 'moment-range';
+const moment = extendMoment(Moment);
+
+const RentalDetailCard = ({ dailyPrice, star, city, street, rental }) => {
   const [openModal, setOpenModal] = useState(false);
   const [guests, setGuests] = useState('');
   const [startAt, setStartAt] = useState(null);
   const [endtAt, setEndAt] = useState(null);
+  const [nights, setNights] = useState(0);
+  const [price, setPrice] = useState(0);
   const dateRef = useRef(null);
 
   const handleApply = (event, { endDate, startDate }) => {
@@ -20,18 +27,30 @@ const RentalDetailCard = ({ dailyPrice, star, city, street }) => {
       moment(endDate).format('DD/MM/YYYY');
     setStartAt(startDate);
     setEndAt(endDate);
+
+    const range = moment.range(startDate, endDate);
+    const bookNights = Array.from(range.by('days')).length - 1;
+    setNights(bookNights);
+
+    const price = dailyPrice * bookNights;
+    setPrice(price);
   };
 
   const isInvalidDate = (date) => date < moment().add(-1, 'days');
 
+  const isBookingValid = guests !== '' && startAt && endtAt;
+
   const onOpenModal = () => setOpenModal(true);
+
   const onCloseModal = () => setOpenModal(false);
 
   const getFormmatedDate = () => (dateRef.current ? dateRef.current.value : '');
+
   const getNumberOfGuests = () => (guests === '' ? 0 : guests);
 
   const reserveRental = () => {
-    console.log(JSON.stringify({ startAt, endtAt, guests }));
+    const bookingData = { startAt, endtAt, guests, nights, price, rental };
+    addBooking(bookingData);
   };
 
   return (
@@ -58,13 +77,14 @@ const RentalDetailCard = ({ dailyPrice, star, city, street }) => {
             type='number'
             placeholder='Number of Guests'
             value={guests}
-            onChange={(e) => setGuests(e.target.value)}
+            onChange={(e) => setGuests(parseInt(e.target.value))}
           />
         </div>
         <TomMap location={{ city, street }} />
         <button
           className='rentalDetail__priceCard-button'
           onClick={onOpenModal}
+          disabled={!isBookingValid}
         >
           Reserve
         </button>
@@ -78,6 +98,8 @@ const RentalDetailCard = ({ dailyPrice, star, city, street }) => {
         getNumberOfGuests={getNumberOfGuests}
         price={dailyPrice}
         reserveRental={reserveRental}
+        nights={nights}
+        totalPrice={price}
       />
     </>
   );

@@ -14,10 +14,7 @@ add = async (bookingData, res) => {
     const isValid = _checkIfBookingIsValid(booking, rentalBookings);
     if (isValid) {
       const savedBooking = await booking.save();
-      return res.json({
-        startAt: savedBooking.startAt,
-        endAt: savedBooking.endAt,
-      });
+      return res.json(savedBooking);
     } else
       return res.sendApiError({
         title: 'Invalid Booking',

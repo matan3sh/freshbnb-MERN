@@ -145,6 +145,13 @@
   &:hover {
     opacity: 0.8;
   }
+
+  &:disabled {
+    color: rgb(230, 30, 77);
+    background-color: #f4f4f4;
+    border: 1px rgb(230, 30, 77) solid;
+    cursor: not-allowed !important;
+  }
 }
 
 .rentalDetail__assets {

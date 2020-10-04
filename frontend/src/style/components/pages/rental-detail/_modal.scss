@@ -23,16 +23,7 @@
 
 .modal__footer {
   display: flex;
-  padding: 10px 0;
-
-  button {
-    margin: 0 10px;
-  }
-
-  .cancelButton {
-    background-color: #ccc;
-    color: #000;
-  }
+  padding: 10px;
 }
 
 .modal__body {

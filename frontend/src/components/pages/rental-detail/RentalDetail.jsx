@@ -47,6 +47,7 @@ const RentalDetail = ({ match, loadRental, clearRental, rental }) => {
               star={rental?.star}
               city={rental?.city}
               street={rental?.street}
+              rental={rental?._id}
             />
           </div>
         </>

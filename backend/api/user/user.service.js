@@ -48,7 +48,7 @@ login = async (userCredentials, res) => {
     if (foundUser.hasSamePassword(password)) {
       const token = jwt.sign(
         {
-          sub: foundUser._id,
+          sub: foundUser.id,
           username: foundUser.username,
           email: foundUser.email,
         },

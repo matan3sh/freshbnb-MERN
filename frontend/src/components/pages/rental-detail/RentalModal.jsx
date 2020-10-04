@@ -1,7 +1,6 @@
 import React from 'react';
 import { Modal } from 'react-responsive-modal';
 
-import { makeReservationID } from 'helpers/functions';
 import { RoomIcon } from 'components/icons';
 
 const RentalModal = ({
@@ -13,6 +12,8 @@ const RentalModal = ({
   getNumberOfGuests,
   price,
   reserveRental,
+  nights,
+  totalPrice,
 }) => {
   return (
     <Modal
@@ -30,16 +31,13 @@ const RentalModal = ({
           {city}, {street}
         </h3>
         <h4>
-          <em>12 </em> Nights /<em> ${price}</em> per Night
+          <em>{nights} </em> Nights /<em> ${price}</em> per Night
         </h4>
         <p>Between {getFormmatedDate()}</p>
         <p>With {getNumberOfGuests()} guests</p>
         <h5>
-          Total Price: <span>$200</span>
+          Total Price: <span>${totalPrice}</span>
         </h5>
-        <p>
-          <span>Reservation ID:</span> {makeReservationID()}
-        </p>
       </div>
       <div className='modal__footer'>
         <button
@@ -48,9 +46,6 @@ const RentalModal = ({
           onClick={() => reserveRental()}
         >
           Confirm
-        </button>
-        <button className='button cancelButton' type='button'>
-          Cancel
         </button>
       </div>
     </Modal>

@@ -2,16 +2,30 @@ const Rental = require('../models/rental');
 
 exports.isUserRentalOwner = (req, res, next) => {
   const { rental } = req.body;
+  console.log(rental);
   const user = res.locals.user;
+
+  if (!rental) {
+    return res.sendApiError({
+      title: 'Booking Error',
+      detail: 'Cannot create booking to undefined rental',
+    });
+  }
+
   Rental.findById(rental)
     .populate('owner')
     .exec((error, foundRental) => {
-      if (error) return res.mongoError(error);
-      if (foundRental.owner.id === user.id)
+      if (error) {
+        return res.mongoError(error);
+      }
+
+      if (foundRental.owner.id === user.id) {
         return res.sendApiError({
-          title: 'Create Booking Error!',
-          detail: 'Cannot Book in Your Own Rental',
+          title: 'Invalid User',
+          detail: 'Cannot create booking on your rental',
         });
+      }
+
       next();
     });
 };
