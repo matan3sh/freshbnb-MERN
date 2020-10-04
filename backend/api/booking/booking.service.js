@@ -9,8 +9,6 @@ add = async (bookingData, res) => {
     user: res.locals.user,
   });
 
-  console.log(booking);
-
   if (!_checkIfBookingDatesAreValid(booking))
     return res.sendApiError({
       title: 'Invalid Booking',
