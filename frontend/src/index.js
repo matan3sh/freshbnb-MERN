@@ -14,6 +14,7 @@ import 'style/style.css';
 import 'react-toastify/dist/ReactToastify.css';
 import '@tomtom-international/web-sdk-maps/dist/maps.css';
 import 'bootstrap-daterangepicker/daterangepicker.css';
+import 'react-responsive-modal/styles.css';
 
 ReactDOM.render(
   <React.StrictMode>

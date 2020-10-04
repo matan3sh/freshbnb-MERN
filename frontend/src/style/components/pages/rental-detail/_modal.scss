@@ -1,0 +1,76 @@
+.react-responsive-modal-modal {
+  padding: 0 !important;
+  width: 300px;
+}
+
+.react-responsive-modal-closeButton {
+  top: 0px !important;
+  right: 0px !important;
+  transform: scale(0.7);
+  fill: #fff;
+}
+
+.modal__header {
+  width: 100%;
+  padding: 10px 5px;
+  background-color: rgb(230, 30, 77);
+  color: #fff !important;
+  h2 {
+    font-size: 22px;
+    font-family: Cereal-Bold;
+  }
+}
+
+.modal__footer {
+  display: flex;
+  padding: 10px 0;
+
+  button {
+    margin: 0 10px;
+  }
+
+  .cancelButton {
+    background-color: #ccc;
+    color: #000;
+  }
+}
+
+.modal__body {
+  padding: 10px;
+  text-align: center;
+
+  h3 {
+    text-transform: capitalize;
+    font-size: 16px;
+    font-family: Cereal-Bold;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  p {
+    margin-top: 1rem;
+    span {
+      font-family: Cereal-Bold;
+      text-transform: uppercase;
+    }
+  }
+
+  h5 {
+    margin-top: 1rem;
+    text-transform: capitalize;
+    font-family: Cereal-Bold;
+    font-size: 20px;
+
+    span {
+      color: rgb(230, 30, 77);
+    }
+  }
+
+  em {
+    margin: 0 5px;
+    font-family: Cereal-Bold;
+    color: rgb(230, 30, 77);
+  }
+}
