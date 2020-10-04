@@ -2,7 +2,6 @@ const Rental = require('../models/rental');
 
 exports.isUserRentalOwner = (req, res, next) => {
   const { rental } = req.body;
-  console.log(rental);
   const user = res.locals.user;
 
   if (!rental) {

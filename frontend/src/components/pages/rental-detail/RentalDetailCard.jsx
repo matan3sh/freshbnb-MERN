@@ -15,12 +15,12 @@ const RentalDetailCard = ({ dailyPrice, star, city, street, rental }) => {
   const [openModal, setOpenModal] = useState(false);
   const [guests, setGuests] = useState('');
   const [startAt, setStartAt] = useState(null);
-  const [endtAt, setEndAt] = useState(null);
+  const [endAt, setEndAt] = useState(null);
   const [nights, setNights] = useState(0);
   const [price, setPrice] = useState(0);
   const dateRef = useRef(null);
 
-  const handleApply = (event, { endDate, startDate }) => {
+  const handleApply = (event, { startDate, endDate }) => {
     dateRef.current.value =
       moment(startDate).format('DD/MM/YYYY') +
       ' to ' +
@@ -38,7 +38,7 @@ const RentalDetailCard = ({ dailyPrice, star, city, street, rental }) => {
 
   const isInvalidDate = (date) => date < moment().add(-1, 'days');
 
-  const isBookingValid = guests !== '' && startAt && endtAt;
+  const isBookingValid = guests !== '' && startAt && endAt;
 
   const onOpenModal = () => setOpenModal(true);
 
@@ -49,7 +49,7 @@ const RentalDetailCard = ({ dailyPrice, star, city, street, rental }) => {
   const getNumberOfGuests = () => (guests === '' ? 0 : guests);
 
   const reserveRental = () => {
-    const bookingData = { startAt, endtAt, guests, nights, price, rental };
+    const bookingData = { startAt, endAt, guests, nights, price, rental };
     addBooking(bookingData);
   };
 

@@ -2,8 +2,15 @@ const moment = require('moment');
 const Booking = require('../../models/booking');
 
 add = async (bookingData, res) => {
-  const booking = new Booking(bookingData);
-  booking.user = res.locals.user;
+  const booking = new Booking({
+    ...bookingData,
+    startAt: moment(bookingData.startAt).utc().format(),
+    endAt: moment(bookingData.endAt).utc().format(),
+    user: res.locals.user,
+  });
+
+  console.log(booking);
+
   if (!_checkIfBookingDatesAreValid(booking))
     return res.sendApiError({
       title: 'Invalid Booking',
