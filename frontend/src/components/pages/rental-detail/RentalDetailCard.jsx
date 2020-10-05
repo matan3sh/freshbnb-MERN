@@ -51,6 +51,7 @@ const RentalDetailCard = ({ dailyPrice, star, city, street, rental }) => {
   const reserveRental = () => {
     const bookingData = { startAt, endAt, guests, nights, price, rental };
     addBooking(bookingData);
+    onCloseModal();
   };
 
   return (

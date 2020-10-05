@@ -11,7 +11,7 @@ exports.users = [
     password: 'testtest',
   },
   {
-    id: user2Id,
+    _id: user2Id,
     username: 'matan3sh',
     email: 'matan3sh@gmail.com',
     password: '123456',
