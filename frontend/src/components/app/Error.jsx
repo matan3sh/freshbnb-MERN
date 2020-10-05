@@ -7,7 +7,7 @@ const Error = ({ errors, clearErrors }) => {
   if (errors !== null) {
     setTimeout(() => {
       clearErrors();
-    }, 5000);
+    }, 10000);
   }
   return (
     <div>

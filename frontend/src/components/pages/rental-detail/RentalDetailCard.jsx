@@ -1,13 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import { connect } from 'react-redux';
 import { addBooking, getBookings } from 'store/bookings/actions';
 
 import DateRangePicker from 'react-bootstrap-daterangepicker';
+import TomMap from 'components/map/TomMap';
 
 import RentalModal from './RentalModal';
 import { StarIcon } from 'components/icons';
-import TomMap from 'components/map/TomMap';
-import { toast } from 'react-toastify';
 
 import Moment from 'moment';
 import { extendMoment } from 'moment-range';
@@ -22,7 +23,8 @@ const RentalDetailCard = ({
   getBookings,
   addBooking,
   bookings,
-  errors,
+  user,
+  isAuth,
 }) => {
   const [openModal, setOpenModal] = useState(false);
   const [guests, setGuests] = useState('');
@@ -80,11 +82,8 @@ const RentalDetailCard = ({
   const reserveRental = () => {
     const bookingData = { startAt, endAt, guests, nights, price, rental };
     addBooking(bookingData);
+    onCloseModal();
     resetData();
-    if (errors === null) {
-      toast.success('Order Complete, Enjoy!');
-      onCloseModal();
-    }
   };
 
   return (
@@ -115,13 +114,21 @@ const RentalDetailCard = ({
           />
         </div>
         <TomMap location={{ city, street }} />
-        <button
-          className='rentalDetail__priceCard-button'
-          onClick={onOpenModal}
-          disabled={!isBookingValid}
-        >
-          Reserve
-        </button>
+        {user && isAuth ? (
+          <button
+            className='rentalDetail__priceCard-button'
+            onClick={onOpenModal}
+            disabled={!isBookingValid}
+          >
+            Reserve
+          </button>
+        ) : (
+          <Link to='/login'>
+            <button className='rentalDetail__priceCard-button'>
+              Login to Book this Place
+            </button>
+          </Link>
+        )}
       </div>
       <RentalModal
         open={openModal}
@@ -141,7 +148,8 @@ const RentalDetailCard = ({
 
 const mapStateToProps = (state) => ({
   bookings: state.bookingsApp.bookings,
-  errors: state.bookingsApp.errors,
+  user: state.authApp.user,
+  isAuth: state.authApp.isAuth,
 });
 
 const mapDispatchToProps = {

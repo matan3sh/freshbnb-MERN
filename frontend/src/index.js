@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from 'App';
 
+import { ToastContainer, Zoom } from 'react-toastify';
 import { MapProvider } from 'providers/MapProvider';
 import { AuthProvider } from 'providers/AuthProvider';
 import { Provider } from 'react-redux';
@@ -21,6 +22,12 @@ ReactDOM.render(
     <Provider store={store}>
       <AuthProvider>
         <MapProvider apiKey={apiKey}>
+          <ToastContainer
+            draggable={false}
+            transition={Zoom}
+            autoClose={5000}
+            position='top-center'
+          />
           <App />
         </MapProvider>
       </AuthProvider>

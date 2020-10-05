@@ -14,7 +14,6 @@ import {
   AddRental,
 } from 'components/pages';
 import { ScrollToTop } from 'components/shared';
-import { ToastContainer, Zoom } from 'react-toastify';
 import { Error } from 'components/app';
 
 const App = () => {
@@ -26,12 +25,6 @@ const App = () => {
 
   return (
     <Router>
-      <ToastContainer
-        draggable={false}
-        transition={Zoom}
-        autoClose={5000}
-        position='top-center'
-      />
       <Header />
       <ScrollToTop />
       <Error />

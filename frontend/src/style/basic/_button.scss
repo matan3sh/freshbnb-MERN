@@ -21,3 +21,29 @@
     cursor: not-allowed !important;
   }
 }
+
+.applyBtn {
+  background-color: rgb(230, 30, 77);
+  color: #fff;
+  line-height: 20px;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 12px;
+  margin: 1rem 0;
+}
+
+.cancelBtn {
+  line-height: 20px;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 12px;
+  margin: 1rem 0;
+}

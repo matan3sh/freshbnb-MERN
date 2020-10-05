@@ -211,6 +211,14 @@
   }
 }
 
+.daterangepicker td.in-range {
+  background-color: #ff9bad !important;
+}
+
+.daterangepicker td.active {
+  background-color: #ff385c !important;
+}
+
 @media screen and (max-width: 1400px) {
   .rentalDetail {
     margin: 1rem 4rem;
