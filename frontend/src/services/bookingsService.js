@@ -7,13 +7,13 @@ const add = async (booking) => {
     const res = await freshbnbAxios.post('/bookings', booking);
     return res.data;
   } catch (error) {
-    Promise.reject(extractApiErrors(error.response || {}));
+    return Promise.reject(extractApiErrors(error.response || {}));
   }
 };
 
-const getByRental = async (rental) => {
+const getByRental = async (rentalId) => {
   try {
-    const res = await freshbnbAxios.get(`/bookings?rental=${rental}`);
+    const res = await freshbnbAxios.get(`/bookings?rental=${rentalId}`);
     return res.data;
   } catch (error) {
     console.log(error);

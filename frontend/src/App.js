@@ -15,6 +15,7 @@ import {
 } from 'components/pages';
 import { ScrollToTop } from 'components/shared';
 import { ToastContainer, Zoom } from 'react-toastify';
+import { Error } from 'components/app';
 
 const App = () => {
   const authService = useAuth();
@@ -33,6 +34,7 @@ const App = () => {
       />
       <Header />
       <ScrollToTop />
+      <Error />
       <Switch>
         <ProtectedRoute exact path='/profile' component={Profile} />
         <Route exact path='/browse' component={Browse} />

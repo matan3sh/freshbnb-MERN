@@ -1,5 +1,6 @@
 const initialState = {
   bookings: [],
+  errors: null,
 };
 
 export default function reducer(state = initialState, action) {
@@ -13,6 +14,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         bookings: [...state.bookings, action.payload],
+      };
+    case 'SET_ERRORS':
+      return {
+        ...state,
+        errors: action.payload,
       };
     default:
       return state;

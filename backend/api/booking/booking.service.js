@@ -3,7 +3,6 @@ const Booking = require('../../models/booking');
 
 query = async (rental, res) => {
   const query = rental ? Booking.find({ rental }) : Booking.find({});
-  console.log(query);
   try {
     const bookings = await query.select('startAt endAt -_id').exec();
     return res.json(bookings);

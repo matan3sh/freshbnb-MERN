@@ -1,5 +1,5 @@
 const express = require('express');
-const { addBooking } = require('./booking.controller');
+const { addBooking, getBookings } = require('./booking.controller');
 
 const auth = require('../../middlewares/auth');
 const { isUserRentalOwner } = require('../../middlewares/rental');

@@ -7,6 +7,7 @@ import DateRangePicker from 'react-bootstrap-daterangepicker';
 import RentalModal from './RentalModal';
 import { StarIcon } from 'components/icons';
 import TomMap from 'components/map/TomMap';
+import { toast } from 'react-toastify';
 
 import Moment from 'moment';
 import { extendMoment } from 'moment-range';
@@ -19,6 +20,9 @@ const RentalDetailCard = ({
   street,
   rental,
   getBookings,
+  addBooking,
+  bookings,
+  errors,
 }) => {
   const [openModal, setOpenModal] = useState(false);
   const [guests, setGuests] = useState('');
@@ -27,15 +31,10 @@ const RentalDetailCard = ({
   const [nights, setNights] = useState(0);
   const [price, setPrice] = useState(0);
   const dateRef = useRef(null);
-  const bookedOutDates = [];
 
   useEffect(() => {
     getBookings(rental);
-    // initBookedOutDates(bookings);
-  });
-
-  const initBookedOutDates = (bookings) =>
-    bookings.forEach((booking) => bookedOutDates.push(booking));
+  }, [getBookings, rental]);
 
   const handleApply = (event, { startDate, endDate }) => {
     dateRef.current.value =
@@ -53,7 +52,13 @@ const RentalDetailCard = ({
     setPrice(price);
   };
 
-  const isInvalidDate = (date) => date < moment().add(-1, 'days');
+  const isInvalidDate = (date) => {
+    let isBookedOut = false;
+    isBookedOut = bookings?.some((booking) =>
+      moment.range(booking.startAt, booking.endAt).contains(date)
+    );
+    return date < moment().add(-1, 'days') || isBookedOut;
+  };
 
   const isBookingValid = guests !== '' && startAt && endAt;
 
@@ -65,10 +70,21 @@ const RentalDetailCard = ({
 
   const getNumberOfGuests = () => (guests === '' ? 0 : guests);
 
+  const resetData = () => {
+    setGuests('');
+    dateRef.current.value = '';
+    setStartAt(null);
+    setEndAt(null);
+  };
+
   const reserveRental = () => {
     const bookingData = { startAt, endAt, guests, nights, price, rental };
     addBooking(bookingData);
-    onCloseModal();
+    resetData();
+    if (errors === null) {
+      toast.success('Order Complete, Enjoy!');
+      onCloseModal();
+    }
   };
 
   return (
@@ -123,8 +139,14 @@ const RentalDetailCard = ({
   );
 };
 
+const mapStateToProps = (state) => ({
+  bookings: state.bookingsApp.bookings,
+  errors: state.bookingsApp.errors,
+});
+
 const mapDispatchToProps = {
   getBookings,
+  addBooking,
 };
 
-export default connect(null, mapDispatchToProps)(RentalDetailCard);
+export default connect(mapStateToProps, mapDispatchToProps)(RentalDetailCard);

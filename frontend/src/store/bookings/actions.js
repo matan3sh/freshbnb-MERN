@@ -1,7 +1,12 @@
 import bookingsService from 'services/bookingsService';
 
-export const addBooking = async (booking) => {
-  await bookingsService.add(booking);
+export const addBooking = (booking) => async (dispatch) => {
+  try {
+    const newBooking = await bookingsService.add(booking);
+    dispatch({ type: 'ADD_BOOKING', payload: newBooking });
+  } catch (error) {
+    dispatch({ type: 'SET_ERRORS', payload: error });
+  }
 };
 
 export const getBookings = (rentalId) => async (dispatch) => {
@@ -11,4 +16,8 @@ export const getBookings = (rentalId) => async (dispatch) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+export const clearErrors = () => async (dispatch) => {
+  dispatch({ type: 'SET_ERRORS', payload: null });
 };
