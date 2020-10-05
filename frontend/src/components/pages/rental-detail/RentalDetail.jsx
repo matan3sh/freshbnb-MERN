@@ -41,6 +41,7 @@ const RentalDetail = ({ match, loadRental, clearRental, rental }) => {
               category={rental?.category}
               shared={rental?.shared}
               numOfRooms={rental?.numOfRooms}
+              owner={rental?.owner}
             />
             <RentalDetailCard
               dailyPrice={rental?.dailyPrice}

@@ -28,3 +28,4 @@ export { default as LocationCityIcon } from '@material-ui/icons/LocationCity';
 export { default as StreetviewIcon } from '@material-ui/icons/Streetview';
 export { default as ImageIcon } from '@material-ui/icons/Image';
 export { default as BurstModeIcon } from '@material-ui/icons/BurstMode';
+export { default as FaceIcon } from '@material-ui/icons/Face';

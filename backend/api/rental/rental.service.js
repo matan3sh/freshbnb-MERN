@@ -12,14 +12,15 @@ query = async (res) => {
 };
 
 getById = async (id, res) => {
-  await Rental.findById(id, (error, foundRental) => {
-    if (error)
-      return Rental.sendError(res, {
-        status: 422,
-        detail: 'Cannot retrive rental data!',
-      });
-    res.json(foundRental);
-  });
+  try {
+    const rental = await Rental.findById(id).populate(
+      'owner',
+      '-password -_id'
+    );
+    res.json(rental);
+  } catch (error) {
+    return res.mongoError(error);
+  }
 };
 
 add = async (rental, res) => {

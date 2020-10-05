@@ -219,6 +219,29 @@
   background-color: #ff385c !important;
 }
 
+.rentalDetail__body-top {
+  display: flex;
+  justify-content: space-between;
+
+  p {
+    margin: 1rem 0;
+    margin-bottom: 0.1rem;
+    margin-left: 1rem;
+
+    span {
+      color: #ff385c;
+      font-family: Cereal-Bold;
+      margin-left: 5px;
+    }
+  }
+}
+
+.rentalDetail__body-host {
+  font-family: Cereal-Bold;
+  display: flex;
+  align-items: center;
+}
+
 @media screen and (max-width: 1400px) {
   .rentalDetail {
     margin: 1rem 4rem;
@@ -260,6 +283,12 @@
 @media screen and (max-width: 1110px) {
   .rentalDetail__body-right {
     margin-bottom: 4rem;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .rentalDetail__body-top {
+    flex-direction: column;
   }
 }
 
