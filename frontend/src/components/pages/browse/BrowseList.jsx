@@ -1,18 +1,23 @@
 import React, { useEffect } from 'react';
+
 import { connect } from 'react-redux';
 import { loadRentals } from 'store/rentals/actions';
 
 import BrowseItem from './BrowseItem';
 
-const BrowseList = ({ rentals, loadRentals }) => {
+const BrowseList = ({ rentals, loadRentals, location }) => {
   useEffect(() => {
-    loadRentals();
-  }, [loadRentals]);
+    loadRentals(location);
+  }, [loadRentals, location]);
   return (
     <div className='browseList'>
-      {rentals?.map((rental, index) => (
-        <BrowseItem rental={rental} key={index} />
-      ))}
+      {!rentals.length ? (
+        <h1 className='no-rentals'>There Is No Rentals At {location}</h1>
+      ) : (
+        rentals?.map((rental, index) => (
+          <BrowseItem rental={rental} key={index} />
+        ))
+      )}
     </div>
   );
 };

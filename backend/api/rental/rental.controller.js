@@ -1,6 +1,6 @@
 const rentalService = require('./rental.service');
 
-getRentals = async (req, res) => await rentalService.query(res);
+getRentals = async (req, res) => await rentalService.query(req.query.city, res);
 
 getRental = async (req, res) => await rentalService.getById(req.params.id, res);
 

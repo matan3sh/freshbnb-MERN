@@ -1,14 +1,13 @@
 const Rental = require('../../models/rental');
 
-query = async (res) => {
-  await Rental.find({}, (error, foundRentals) => {
-    if (error)
-      return Rental.sendError(res, {
-        status: 422,
-        detail: 'Cannot retrive rentals data!',
-      });
-    res.json(foundRentals);
-  });
+query = async (city, res) => {
+  const criteria = city ? { city: city.toLowerCase() } : {};
+  try {
+    const rentals = await Rental.find(criteria);
+    return res.json(rentals);
+  } catch (error) {
+    return res.mongoError(error);
+  }
 };
 
 getById = async (id, res) => {

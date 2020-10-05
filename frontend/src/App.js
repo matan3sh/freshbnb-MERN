@@ -29,8 +29,8 @@ const App = () => {
       <ScrollToTop />
       <Error />
       <Switch>
+        <Route exact path='/:location/browse' component={Browse} />
         <ProtectedRoute exact path='/profile' component={Profile} />
-        <Route exact path='/browse' component={Browse} />
         <GuestRoute exact path='/login' component={Login} />
         <GuestRoute exact path='/register' component={Register} />
         <ProtectedRoute exact path='/rentals/add' component={AddRental} />

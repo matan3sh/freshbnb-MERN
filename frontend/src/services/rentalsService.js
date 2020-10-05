@@ -1,9 +1,11 @@
 import axiosService from './axiosService';
 const { freshbnbAxios } = axiosService;
 
-const query = async () => {
+const query = async (location) => {
+  const query =
+    location && location !== 'all' ? `/rentals?city=${location}` : '/rentals';
   try {
-    const res = await freshbnbAxios.get(`/rentals`);
+    const res = await freshbnbAxios.get(query);
     return res.data;
   } catch (error) {
     console.log(error);

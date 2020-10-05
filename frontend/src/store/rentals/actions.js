@@ -1,8 +1,8 @@
 import rentalsServices from 'services/rentalsService';
 
-export const loadRentals = () => async (dispatch) => {
+export const loadRentals = (location) => async (dispatch) => {
   try {
-    const rentals = await rentalsServices.query();
+    const rentals = await rentalsServices.query(location);
     dispatch({ type: 'SET_RENTALS', payload: rentals });
   } catch (err) {
     console.log(err);

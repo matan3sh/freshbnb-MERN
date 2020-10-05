@@ -3,8 +3,11 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { Avatar } from '@material-ui/core';
-import { SearchIcon, LanguageIcon, ExpandMoreIcon } from 'components/icons';
+import { LanguageIcon, ExpandMoreIcon } from 'components/icons';
+
 import Dropdown from './Dropdown';
+import Search from './Search';
+
 import logo from 'assets/img/logo.png';
 
 const Header = ({ user, isAuth }) => {
@@ -14,10 +17,7 @@ const Header = ({ user, isAuth }) => {
       <Link to='/'>
         <img className='header__logo' src={logo} alt='logo' />
       </Link>
-      <div className='header__center'>
-        <input type='text' />
-        <SearchIcon className='header__searchIcon' />
-      </div>
+      <Search />
       <div className='header__right'>
         {!isAuth && (
           <p>
@@ -39,8 +39,6 @@ const Header = ({ user, isAuth }) => {
           <div
             className='header__username'
             onClick={() => setOpenDropdown(!openDropdown)}
-            // onMouseOver={() => setOpenDropdown(true)}
-            // onMouseLeave={() => setOpenDropdown(false)}
           >
             <span>{user.username}</span>
             <Avatar className='header__avatar' />
