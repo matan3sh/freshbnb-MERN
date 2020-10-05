@@ -1,5 +1,6 @@
-import React, { useRef, useState } from 'react';
-import { addBooking } from 'store/bookings/actions';
+import React, { useEffect, useRef, useState } from 'react';
+import { connect } from 'react-redux';
+import { addBooking, getBookings } from 'store/bookings/actions';
 
 import DateRangePicker from 'react-bootstrap-daterangepicker';
 
@@ -11,7 +12,14 @@ import Moment from 'moment';
 import { extendMoment } from 'moment-range';
 const moment = extendMoment(Moment);
 
-const RentalDetailCard = ({ dailyPrice, star, city, street, rental }) => {
+const RentalDetailCard = ({
+  dailyPrice,
+  star,
+  city,
+  street,
+  rental,
+  getBookings,
+}) => {
   const [openModal, setOpenModal] = useState(false);
   const [guests, setGuests] = useState('');
   const [startAt, setStartAt] = useState(null);
@@ -19,6 +27,15 @@ const RentalDetailCard = ({ dailyPrice, star, city, street, rental }) => {
   const [nights, setNights] = useState(0);
   const [price, setPrice] = useState(0);
   const dateRef = useRef(null);
+  const bookedOutDates = [];
+
+  useEffect(() => {
+    getBookings(rental);
+    // initBookedOutDates(bookings);
+  });
+
+  const initBookedOutDates = (bookings) =>
+    bookings.forEach((booking) => bookedOutDates.push(booking));
 
   const handleApply = (event, { startDate, endDate }) => {
     dateRef.current.value =
@@ -106,4 +123,8 @@ const RentalDetailCard = ({ dailyPrice, star, city, street, rental }) => {
   );
 };
 
-export default RentalDetailCard;
+const mapDispatchToProps = {
+  getBookings,
+};
+
+export default connect(null, mapDispatchToProps)(RentalDetailCard);

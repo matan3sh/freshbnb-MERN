@@ -1,6 +1,17 @@
 const moment = require('moment');
 const Booking = require('../../models/booking');
 
+query = async (rental, res) => {
+  const query = rental ? Booking.find({ rental }) : Booking.find({});
+  console.log(query);
+  try {
+    const bookings = await query.select('startAt endAt -_id').exec();
+    return res.json(bookings);
+  } catch (error) {
+    return res.mongoError(error);
+  }
+};
+
 add = async (bookingData, res) => {
   const booking = new Booking({
     ...bookingData,
@@ -56,4 +67,5 @@ _checkIfBookingIsValid = (pendingBooking, rentalBookings) => {
 
 module.exports = {
   add,
+  query,
 };

@@ -11,6 +11,16 @@ const add = async (booking) => {
   }
 };
 
+const getByRental = async (rental) => {
+  try {
+    const res = await freshbnbAxios.get(`/bookings?rental=${rental}`);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export default {
   add,
+  getByRental,
 };
