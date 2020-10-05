@@ -20,6 +20,11 @@ export default function reducer(state = initialState, action) {
         ...state,
         rental: null,
       };
+    case 'CLEAR_RENTALS':
+      return {
+        ...state,
+        rentals: null,
+      };
     case 'ADD_RENTAL':
       return {
         ...state,

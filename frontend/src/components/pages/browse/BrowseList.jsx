@@ -1,17 +1,23 @@
 import React, { useEffect } from 'react';
 
 import { connect } from 'react-redux';
-import { loadRentals } from 'store/rentals/actions';
+import { loadRentals, clearRentals } from 'store/rentals/actions';
 
+import { Spinner } from 'components/shared';
 import BrowseItem from './BrowseItem';
 
-const BrowseList = ({ rentals, loadRentals, location }) => {
+const BrowseList = ({ rentals, loadRentals, location, clearRentals }) => {
   useEffect(() => {
     loadRentals(location);
-  }, [loadRentals, location]);
+    return () => {
+      clearRentals();
+    };
+  }, [loadRentals, location, clearRentals]);
+
   return (
     <div className='browseList'>
-      {!rentals.length ? (
+      {rentals === null && <Spinner />}
+      {!rentals?.length ? (
         <h1 className='no-rentals'>There Is No Rentals At {location}</h1>
       ) : (
         rentals?.map((rental, index) => (
@@ -27,6 +33,7 @@ const mapStateToProps = (state) => ({
 });
 const mapDispatchToProps = {
   loadRentals,
+  clearRentals,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BrowseList);

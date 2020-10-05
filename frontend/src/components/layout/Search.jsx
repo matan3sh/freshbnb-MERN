@@ -10,6 +10,12 @@ const Search = () => {
   return (
     <div className='header__center'>
       <input
+        onKeyPress={(e) => {
+          if (e.key === 'Enter') {
+            if (text !== '') history.push(`${text}/browse`);
+            else history.push('/');
+          }
+        }}
         value={text}
         onChange={(e) => setText(e.target.value)}
         type='text'

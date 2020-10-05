@@ -9,6 +9,14 @@ export const loadRentals = (location) => async (dispatch) => {
   }
 };
 
+export const clearRentals = () => async (dispatch) => {
+  try {
+    dispatch({ type: 'CLEAR_RENTALS' });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const loadRental = (rentalId) => async (dispatch) => {
   try {
     const rental = await rentalsServices.getById(rentalId);
