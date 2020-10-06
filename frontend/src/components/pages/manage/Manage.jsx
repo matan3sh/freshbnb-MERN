@@ -1,21 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const Manage = () => {
+  const history = useHistory();
   return (
     <div className='manage'>
       <div className='manage__navigation'>
-        <button>
-          <Link to='manage/add'>New Rental</Link>
+        <button onClick={() => history.push('manage/add')}>New Rental</button>
+        <button onClick={() => history.push('manage/rentals')}>
+          My Rentals
         </button>
-        <button>
-          <Link to='manage/rentals'>My Rentals</Link>
+        <button onClick={() => history.push('manage/bookings')}>
+          My Bookings
         </button>
-        <button>
-          <Link to='manage/bookings'>My Bookings</Link>
-        </button>
-        <button>
-          <Link to='/manage/received'>Received Bookings</Link>
+        <button onClick={() => history.push('/manage/received')}>
+          Received Bookings
         </button>
       </div>
     </div>

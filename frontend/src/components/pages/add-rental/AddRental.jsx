@@ -46,8 +46,10 @@ const NewRental = ({ addRental }) => {
 
   return (
     <>
-      <div className='addRental__container'>
+      <div className='myRentals__nav'>
         <ManageNavigation />
+      </div>
+      <div className='addRental__container'>
         <div className='addRental__header'>
           <p>Create New Rental</p>
         </div>
