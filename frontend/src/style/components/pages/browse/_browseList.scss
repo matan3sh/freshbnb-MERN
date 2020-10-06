@@ -110,6 +110,11 @@
   text-transform: uppercase;
   letter-spacing: 3px;
   font-family: Cereal-Bold, sans-serif;
+
+  span {
+    color: #ff385c;
+    margin-left: 5px;
+  }
 }
 
 @media screen and (max-width: 1108px) {

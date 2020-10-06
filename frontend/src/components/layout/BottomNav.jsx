@@ -50,17 +50,8 @@ const BottomNav = ({ user, isAuth }) => {
 
   const getUserNav = () => (
     <>
-      {/* <NavLink
-        to='/'
-        exact
-        className='navBottom__link'
-        activeClassName='navBottom__active'
-      >
-        <HomeIcon />
-        <span className='navBottom__text'>Home</span>
-      </NavLink> */}
       <NavLink
-        to='/browse'
+        to='/all/browse'
         className='navBottom__link'
         activeClassName='navBottom__active'
       >

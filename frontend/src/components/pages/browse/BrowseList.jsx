@@ -18,7 +18,9 @@ const BrowseList = ({ rentals, loadRentals, location, clearRentals }) => {
     <div className='browseList'>
       {rentals === null && <Spinner />}
       {!rentals?.length ? (
-        <h1 className='no-rentals'>There Is No Rentals At {location}</h1>
+        <h1 className='no-rentals'>
+          There Is No Rentals At <span>{location}</span>
+        </h1>
       ) : (
         rentals?.map((rental, index) => (
           <BrowseItem rental={rental} key={index} />
