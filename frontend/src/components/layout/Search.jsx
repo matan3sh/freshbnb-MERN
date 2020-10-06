@@ -12,8 +12,13 @@ const Search = () => {
       <input
         onKeyPress={(e) => {
           if (e.key === 'Enter') {
-            if (text !== '') history.push(`${text}/browse`);
-            else history.push('/');
+            if (text !== '') {
+              history.push(`${text}/browse`);
+              setText('');
+            } else {
+              history.push('/');
+              setText('');
+            }
           }
         }}
         value={text}
@@ -24,8 +29,13 @@ const Search = () => {
       <SearchIcon
         className='header__searchIcon'
         onClick={() => {
-          if (text === '') history.push('/');
-          else history.push(`${text}/browse`);
+          if (text === '') {
+            history.push('/');
+            setText('');
+          } else {
+            history.push(`${text}/browse`);
+            setText('');
+          }
         }}
       />
     </div>
