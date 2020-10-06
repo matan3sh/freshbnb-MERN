@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { addRental } from 'store/rentals/actions';
 import { AddRentalForm } from 'components/forms';
 
+import ManageNavigation from '../manage/ManageNavigation';
+
 const NewRental = ({ addRental }) => {
   const history = useHistory();
 
@@ -43,14 +45,17 @@ const NewRental = ({ addRental }) => {
   };
 
   return (
-    <div className='addRental__container'>
-      <div className='addRental__header'>
-        <p>Create New Rental</p>
+    <>
+      <div className='addRental__container'>
+        <ManageNavigation />
+        <div className='addRental__header'>
+          <p>Create New Rental</p>
+        </div>
+        <div className='addRental__body'>
+          <AddRentalForm onSubmit={onAddNewRental} />
+        </div>
       </div>
-      <div className='addRental__body'>
-        <AddRentalForm onSubmit={onAddNewRental} />
-      </div>
-    </div>
+    </>
   );
 };
 

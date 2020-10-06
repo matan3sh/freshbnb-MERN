@@ -5,3 +5,7 @@ export { default as Register } from './auth/Register';
 export { default as RentalDetail } from './rental-detail/RentalDetail';
 export { default as Profile } from './profile/Profile';
 export { default as AddRental } from './add-rental/AddRental';
+export { default as Manage } from './manage/Manage';
+export { default as MyRentals } from './my-rentals/MyRentals';
+export { default as MyBookings } from './my-bookings/MyBookings';
+export { default as ReceivedBookings } from './received-bookings/ReceivedBookings';

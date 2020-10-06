@@ -1,0 +1,53 @@
+.manage {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  height: 75vh;
+  flex-direction: column;
+}
+
+.manage__navigation {
+  display: flex;
+  flex-direction: column;
+
+  button {
+    margin-top: 1rem;
+    background-color: rgb(230, 30, 77);
+    color: #fff;
+    line-height: 20px;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 12px;
+    width: 100%;
+    transition: 0.1s all ease-in;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  button:nth-child(even) {
+    background-color: #fff;
+    border: 1px rgb(230, 30, 77) solid;
+    color: rgb(230, 30, 77);
+  }
+}
+
+.manage_navigation {
+  display: flex;
+  margin-bottom: 15px;
+  font-size: 12px;
+  margin-right: auto;
+
+  span {
+    margin-left: 5px;
+  }
+
+  &-icon {
+    font-size: 14px !important;
+  }
+}

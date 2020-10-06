@@ -21,15 +21,15 @@ const Dropdown = () => {
           </Link>
         </li>
         <li>
-          <Link to='/rentals/add'>
+          <Link to='/all/browse'>
             <BusinessIcon />
-            Add Rental
+            Browse
           </Link>
         </li>
         <li>
           <Link to='/manage'>
             <SettingsApplicationsIcon />
-            Manage Rentals
+            Manage
           </Link>
         </li>
         <li>

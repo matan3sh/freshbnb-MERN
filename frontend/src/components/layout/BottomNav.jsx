@@ -11,7 +11,6 @@ import {
   PersonIcon,
   SettingsApplicationsIcon,
   ExitToAppIcon,
-  BusinessIcon,
 } from 'components/icons';
 
 const BottomNav = ({ user, isAuth }) => {
@@ -51,6 +50,15 @@ const BottomNav = ({ user, isAuth }) => {
   const getUserNav = () => (
     <>
       <NavLink
+        to='/'
+        exact
+        className='navBottom__link'
+        activeClassName='navBottom__active'
+      >
+        <HomeIcon />
+        <span className='navBottom__text'>Home</span>
+      </NavLink>
+      <NavLink
         to='/all/browse'
         className='navBottom__link'
         activeClassName='navBottom__active'
@@ -66,15 +74,6 @@ const BottomNav = ({ user, isAuth }) => {
       >
         <PersonIcon />
         <span className='navBottom__text'>Profile</span>
-      </NavLink>
-      <NavLink
-        to='/rentals/add'
-        exact
-        className='navBottom__link'
-        activeClassName='navBottom__active'
-      >
-        <BusinessIcon />
-        <span className='navBottom__text'>Add Rental</span>
       </NavLink>
       <NavLink
         to='/manage'
