@@ -1,4 +1,5 @@
 const moment = require('moment');
+const Rental = require('../../models/rental');
 const Booking = require('../../models/booking');
 
 query = async (rental, res) => {
@@ -76,8 +77,50 @@ getByUser = async (res) => {
   }
 };
 
+getPendingBookings = async (res) => {
+  const { user } = res.locals;
+  try {
+    const rentals = await Rental.find({ owner: user }, '_id');
+    const rentalIds = rentals.map((rental) => rental._id);
+    const bookings = await Booking.find({ rental: { $in: rentalIds } })
+      .populate('user', '-password')
+      .populate('rental');
+    return res.json(bookings);
+  } catch (error) {
+    return res.mongoError(error);
+  }
+};
+
+remove = async (bookingId, res) => {
+  const { user } = res.locals;
+  try {
+    const booking = await Booking.findById(bookingId).populate(
+      'user',
+      '-password'
+    );
+    if (user._id !== booking.user._id)
+      return res.sendApiError({
+        title: 'Invalid User',
+        detail: 'You cannot delete other user bookings!',
+      });
+    if (moment(booking.startAt).diff(moment(), 'days') > 3) {
+      await booking.remove();
+      return res.json({ id: bookingId });
+    } else {
+      return res.sendApiError({
+        title: 'Invalid Booking',
+        detail: 'You cannot delete booking already started!',
+      });
+    }
+  } catch (error) {
+    return res.mongoError(error);
+  }
+};
+
 module.exports = {
   add,
   query,
+  remove,
   getByUser,
+  getPendingBookings,
 };
