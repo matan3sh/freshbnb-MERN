@@ -34,8 +34,19 @@ add = async (rental, res) => {
   });
 };
 
+getByUser = async (res) => {
+  const { user } = res.locals;
+  try {
+    const rentals = await Rental.find({ owner: user.id });
+    return res.json(rentals);
+  } catch (error) {
+    return res.mongoError(error);
+  }
+};
+
 module.exports = {
   query,
   getById,
+  getByUser,
   add,
 };

@@ -64,7 +64,20 @@ _checkIfBookingIsValid = (pendingBooking, rentalBookings) => {
   return isValid;
 };
 
+getByUser = async (res) => {
+  const { user } = res.locals;
+  try {
+    const bookings = await Booking.find({ user })
+      .populate('user', '-password')
+      .populate('rental');
+    return res.json(bookings);
+  } catch (error) {
+    return res.mongoError(error);
+  }
+};
+
 module.exports = {
   add,
   query,
+  getByUser,
 };

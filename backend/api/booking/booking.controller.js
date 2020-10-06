@@ -5,7 +5,10 @@ getBookings = async (req, res) =>
 
 addBooking = async (req, res) => await bookingService.add(req.body, res);
 
+getUserBookings = async (req, res) => await bookingService.getByUser(res);
+
 module.exports = {
   addBooking,
   getBookings,
+  getUserBookings,
 };
