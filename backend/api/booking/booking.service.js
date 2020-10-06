@@ -98,11 +98,12 @@ remove = async (bookingId, res) => {
       'user',
       '-password'
     );
-    if (user._id !== booking.user._id)
+    if (user._id !== booking.user._id) {
       return res.sendApiError({
         title: 'Invalid User',
         detail: 'You cannot delete other user bookings!',
       });
+    }
     if (moment(booking.startAt).diff(moment(), 'days') > 3) {
       await booking.remove();
       return res.json({ id: bookingId });

@@ -17,7 +17,6 @@ router.get('/me', auth, getUserBookings);
 router.get('/received', auth, getReceviedBookings);
 
 router.post('/', auth, isUserRentalOwner, addBooking);
-
 router.delete('/:id', auth, deleteBooking);
 
 module.exports = router;

@@ -14,10 +14,8 @@ updateRental = async (req, res) => {
   res.send(rental);
 };
 
-deleteRental = async (req, res) => {
-  await rentalService.remove(req.params.id);
-  res.end();
-};
+deleteRental = async (req, res) =>
+  await rentalService.remove(req.params.id, res);
 
 module.exports = {
   getRental,

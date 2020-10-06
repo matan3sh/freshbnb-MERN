@@ -14,8 +14,8 @@ router.get('/', getRentals);
 router.get('/me', auth, getUserRentals);
 router.get('/:id', getRental);
 
+router.delete('/:id', auth, deleteRental);
 router.post('/', auth, addRental);
 router.put('/:id', updateRental);
-router.delete('/:id', deleteRental);
 
 module.exports = router;
