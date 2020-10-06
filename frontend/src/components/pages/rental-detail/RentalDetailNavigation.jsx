@@ -4,7 +4,7 @@ import { KeyboardBackspaceIcon } from 'components/icons';
 
 const RentalDetailNavigation = () => {
   return (
-    <Link to='/browse'>
+    <Link to='/all/browse'>
       <div className='rentalDetail__back'>
         <KeyboardBackspaceIcon className='rentalDetail__back-icon' />{' '}
         <span>Back to Rentals</span>
