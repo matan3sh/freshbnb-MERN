@@ -13,7 +13,7 @@ const Search = () => {
         onKeyPress={(e) => {
           if (e.key === 'Enter') {
             if (text !== '') {
-              history.push(`${text}/browse`);
+              history.replace(`/${text}/browse`);
               setText('');
             } else {
               history.push('/');
@@ -33,7 +33,7 @@ const Search = () => {
             history.push('/');
             setText('');
           } else {
-            history.push(`${text}/browse`);
+            history.replace(`/${text}/browse`);
             setText('');
           }
         }}
