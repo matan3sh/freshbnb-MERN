@@ -16,7 +16,7 @@ const Search = () => {
               history.replace(`/${text}/browse`);
               setText('');
             } else {
-              history.push('/');
+              history.replace('/all/browse');
               setText('');
             }
           }
@@ -30,7 +30,7 @@ const Search = () => {
         className='header__searchIcon'
         onClick={() => {
           if (text === '') {
-            history.push('/');
+            history.replace('/all/browse');
             setText('');
           } else {
             history.replace(`/${text}/browse`);
