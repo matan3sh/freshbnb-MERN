@@ -14,15 +14,15 @@ moment.locale('he');
 
 const ReceivedBookingsItem = ({ booking }) => {
   return (
-    <Link to={`/rentals/${booking.rental._id}`}>
-      <div className='MyBookingsItem'>
-        <div className='MyBookingsItem__img'>
-          <img src={booking.rental.image} alt='' />
-          <div>
-            <button>Cancel</button>
-            <button className='accept__btn'>Accept</button>
-          </div>
+    <div className='MyBookingsItem'>
+      <div className='MyBookingsItem__img'>
+        <img src={booking.rental.image} alt='' />
+        <div>
+          <button>Cancel</button>
+          <button className='accept__btn'>Accept</button>
         </div>
+      </div>
+      <Link to={`/rentals/${booking.rental._id}`}>
         <div className='MyBookingsItem__body'>
           <h2>{booking.rental.title}</h2>
           <div className='MyBookingsItem__body-specs'>
@@ -51,8 +51,8 @@ const ReceivedBookingsItem = ({ booking }) => {
             Total Price: <span>${booking.price}</span>
           </p>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 

@@ -38,9 +38,19 @@ const deleteRental = async (rentalId) => {
   }
 };
 
+const deleteBooking = async (bookingId) => {
+  try {
+    const res = await freshbnbAxios.delete(`/bookings/${bookingId}`);
+    return res.data;
+  } catch (error) {
+    return Promise.reject(extractApiErrors(error.response || {}));
+  }
+};
+
 export default {
   queryRentals,
   queryBookings,
   queryRecievedBookings,
   deleteRental,
+  deleteBooking,
 };

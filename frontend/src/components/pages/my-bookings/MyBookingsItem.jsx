@@ -1,5 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
+import { connect } from 'react-redux';
+import { deleteMyBooking } from 'store/manage/actions';
+
 import {
   DateRangeIcon,
   PeopleIcon,
@@ -12,16 +16,25 @@ import moment from 'moment';
 import 'moment/locale/he';
 moment.locale('he');
 
-const MyBookingsItem = ({ booking }) => {
+const MyBookingsItem = ({ booking, deleteMyBooking }) => {
+  const onDelete = (bookingId) => {
+    const canDelete = askForPermission();
+    if (!canDelete) return;
+    deleteMyBooking(bookingId);
+  };
+
+  const askForPermission = () =>
+    window.confirm('Are you sure you want to delete this rental?');
+
   return (
-    <Link to={`/rentals/${booking.rental._id}`}>
-      <div className='MyBookingsItem'>
-        <div className='MyBookingsItem__img'>
-          <img src={booking.rental.image} alt='' />
-          <div>
-            <button>Cancel</button>
-          </div>
+    <div className='MyBookingsItem'>
+      <div className='MyBookingsItem__img'>
+        <img src={booking.rental.image} alt='' />
+        <div>
+          <button onClick={() => onDelete(booking._id)}>Cancel</button>
         </div>
+      </div>
+      <Link to={`/rentals/${booking.rental._id}`}>
         <div className='MyBookingsItem__body'>
           <h2>{booking.rental.title}</h2>
           <div className='MyBookingsItem__body-specs'>
@@ -50,9 +63,13 @@ const MyBookingsItem = ({ booking }) => {
             Total Price: <span>${booking.price}</span>
           </p>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 
-export default MyBookingsItem;
+const mapDispatchToProps = {
+  deleteMyBooking,
+};
+
+export default connect(null, mapDispatchToProps)(MyBookingsItem);
