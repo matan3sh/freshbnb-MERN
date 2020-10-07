@@ -16,6 +16,6 @@ router.get('/:id', getRental);
 
 router.delete('/:id', auth, deleteRental);
 router.post('/', auth, addRental);
-router.put('/:id', updateRental);
+router.patch('/:id', auth, updateRental);
 
 module.exports = router;

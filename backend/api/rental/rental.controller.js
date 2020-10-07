@@ -8,11 +8,7 @@ addRental = async (req, res) => await rentalService.add(req.body, res);
 
 getUserRentals = async (req, res) => await rentalService.getByUser(res);
 
-updateRental = async (req, res) => {
-  const rental = req.body;
-  await rentalService.update(rental);
-  res.send(rental);
-};
+updateRental = async (req, res) => await rentalService.update(req, res);
 
 deleteRental = async (req, res) =>
   await rentalService.remove(req.params.id, res);

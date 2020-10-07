@@ -72,10 +72,31 @@ remove = async (rentalId, res) => {
   }
 };
 
+update = async (req, res) => {
+  const { user } = res.locals;
+  const { id } = req.params;
+  const rentalData = req.body;
+  try {
+    const rental = await Rental.findById(id).populate('owner', '-password');
+    if (rental.owner.id !== user.id) {
+      return res.sendApiError({
+        title: 'Invalid User',
+        detail: 'You are not owner of this rental!',
+      });
+    }
+    rental.set(rentalData);
+    await rental.save();
+    return res.status(200).send(rental);
+  } catch (error) {
+    return res.mongoError(error);
+  }
+};
+
 module.exports = {
   query,
   getById,
   getByUser,
   add,
   remove,
+  update,
 };
