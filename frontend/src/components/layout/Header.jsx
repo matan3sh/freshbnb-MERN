@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { Avatar } from '@material-ui/core';
-import { LanguageIcon, ExpandMoreIcon } from 'components/icons';
+import { ExpandMoreIcon } from 'components/icons';
 
 import Dropdown from './Dropdown';
 import Search from './Search';
@@ -31,16 +31,14 @@ const Header = ({ user, isAuth }) => {
           </p>
         )}
 
-        <div className='header__right-icons'>
-          <LanguageIcon className='header__right-icons-lang' />
-          <ExpandMoreIcon className='header__right-icons-plus' />
-        </div>
+        <div className='header__right-icons'></div>
         {isAuth && user && (
           <div
             className='header__username'
             onClick={() => setOpenDropdown(!openDropdown)}
           >
             <span>{user.username}</span>
+            <ExpandMoreIcon className='header__right-icons-plus' />
             <Avatar className='header__avatar' />
             {openDropdown && <Dropdown />}
           </div>

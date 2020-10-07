@@ -29,7 +29,7 @@
 
   input {
     border: none;
-    width: 250px;
+    width: 550px;
     padding: 10px;
     outline-width: 0;
   }
@@ -43,15 +43,19 @@
   width: 15vw;
   margin-right: 20px;
   padding: 5px 10px;
+
   p {
     font-size: 14px;
   }
 
-  .header__right-icons:hover {
-    background-color: #f2f2f2;
-    cursor: pointer;
+  .header__right-icons {
     padding: 5px 10px;
     border-radius: 20px;
+
+    &:hover {
+      background-color: #f2f2f2;
+      cursor: pointer;
+    }
   }
 }
 
@@ -153,6 +157,13 @@
   }
 }
 
+@media screen and (max-width: 817px) {
+  .header__center {
+    input {
+      width: 300px;
+    }
+  }
+}
 @media screen and (max-width: 740px) {
   .header {
     justify-content: none;

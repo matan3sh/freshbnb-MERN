@@ -4,10 +4,22 @@ import { Link } from 'react-router-dom';
 import { FavoriteBorderIcon, StarIcon, RoomIcon } from 'components/icons';
 
 const MyRentalItem = ({ rental }) => {
+  const onDelete = (rentalId) => {
+    const canDelete = askForPermission();
+    if (!canDelete) return;
+    alert('Deleting');
+  };
+
+  const askForPermission = () =>
+    window.confirm('Are you sure you want to delete this rental?');
+
   return (
-    <Link to={`/rentals/${rental._id}`} id='item'>
-      <div className='browseItem'>
+    <div className='browseItem'>
+      <div className='browseItem__head'>
         <img src={rental.image} alt='' />
+        <button onClick={() => onDelete(rental._id)}>Delete</button>
+      </div>
+      <Link to={`/rentals/${rental._id}`} id='item'>
         <FavoriteBorderIcon className='browseItem__heart' />
         <div className='browseItem__info'>
           <div className='browseItem__infoTop'>
@@ -41,8 +53,8 @@ const MyRentalItem = ({ rental }) => {
             </div>
           </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 

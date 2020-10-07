@@ -24,7 +24,7 @@ const RentalDetail = ({ match, loadRental, clearRental, rental }) => {
     <div className='rentalDetail'>
       {rental ? (
         <>
-          <RentalDetailNavigation />
+          <RentalDetailNavigation margin='m-0' />
           <RentalDetailHeader
             title={rental?.title}
             star={rental?.star}
