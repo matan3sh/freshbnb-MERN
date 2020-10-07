@@ -127,27 +127,28 @@
     border-radius: 10px;
     overflow: hidden;
   }
-
-  button {
+  div {
     position: absolute;
     top: 0px;
     left: 5px;
-    background-color: rgb(230, 30, 77);
-    color: #fff;
-    font-weight: 600;
-    font-size: 12px;
-    text-align: center;
-    cursor: pointer;
-    padding: 5px 10px;
-    border: 1px rgb(230, 30, 77) solid;
-    border-radius: 12px;
-    margin: 0.5rem 0;
-    transition: 200ms all ease-in;
-
-    &:hover {
-      background-color: #fff;
+    button {
+      background-color: rgb(230, 30, 77);
+      color: #fff;
+      font-weight: 600;
+      font-size: 12px;
+      text-align: center;
+      cursor: pointer;
+      padding: 5px 10px;
       border: 1px rgb(230, 30, 77) solid;
-      color: rgb(230, 30, 77);
+      border-radius: 12px;
+      margin: 0.5rem 0.2rem;
+      transition: 200ms all ease-in;
+
+      &:hover {
+        background-color: #fff;
+        border: 1px rgb(230, 30, 77) solid;
+        color: rgb(230, 30, 77);
+      }
     }
   }
 }

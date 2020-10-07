@@ -110,7 +110,7 @@ remove = async (bookingId, res) => {
     } else {
       return res.sendApiError({
         title: 'Invalid Booking',
-        detail: 'You cannot delete booking already started!',
+        detail: 'You cannot delete booking at least 3 days before arrival',
       });
     }
   } catch (error) {
