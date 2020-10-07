@@ -20,7 +20,6 @@ const MyBookingsItem = ({ booking }) => {
           <img src={booking.rental.image} alt='' />
           <div>
             <button>Cancel</button>
-            <button>Accept</button>
           </div>
         </div>
         <div className='MyBookingsItem__body'>

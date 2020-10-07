@@ -61,7 +61,7 @@ remove = async (rentalId, res) => {
     if (bookings && bookings.length > 0) {
       return res.sendApiError({
         title: 'Active Bookings',
-        detail: 'Cannot delete rental with active booking!',
+        detail: 'Cannot delete rental with active bookings!',
       });
     }
 

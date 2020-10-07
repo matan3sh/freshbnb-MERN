@@ -9,11 +9,12 @@ const Error = ({ errors, clearErrors }) => {
       clearErrors();
     }, 10000);
   }
-  return (
-    <div>
-      {errors !== null && errors.map((error) => toast.error(error.detail))}
-    </div>
-  );
+
+  const onRender = () => {
+    errors !== null && errors.map((error) => toast.error(error.detail));
+  };
+
+  return <>{onRender()}</>;
 };
 const mapStateToProps = (state) => ({
   errors: state.bookingsApp.errors,

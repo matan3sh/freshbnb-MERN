@@ -14,18 +14,21 @@ const MyBookings = ({ myBookings, loadMyBookings, clearMyBookings }) => {
     };
   }, [loadMyBookings, clearMyBookings]);
 
+  const onRender = () => {
+    if (myBookings === null) return <Spinner />;
+    else if (!myBookings?.length)
+      return <h1 className='no-rentals'>There Is No Bookings</h1>;
+  };
+
   return (
     <>
       <ManageNavigation />
       <h2 className='manage__title'>My Bookings</h2>
       <div className='MyBookingsItem__container'>
-        {myBookings === null && <Spinner />}
         {myBookings?.map((booking) => (
           <MyBookingsItem key={booking._id} booking={booking} />
         ))}
-        {!myBookings?.length && (
-          <h1 className='no-rentals'>There Is No Bookings</h1>
-        )}
+        {onRender()}
       </div>
     </>
   );

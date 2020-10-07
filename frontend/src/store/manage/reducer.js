@@ -36,6 +36,13 @@ export default function reducer(state = initialState, action) {
         ...state,
         receivedBookings: null,
       };
+    case 'DELETE_MY_RENTAL':
+      return {
+        ...state,
+        myRentals: state.myRentals.filter(
+          (rental) => rental._id !== action.payload
+        ),
+      };
     default:
       return state;
   }

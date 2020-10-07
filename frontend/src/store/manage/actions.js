@@ -50,3 +50,12 @@ export const clearReceivedBookings = () => async (dispatch) => {
     console.log(err);
   }
 };
+
+export const deleteMyRental = (rentalId) => async (dispatch) => {
+  try {
+    const deletedRentalId = await manageService.deleteRental(rentalId);
+    dispatch({ type: 'DELETE_MY_RENTAL', payload: rentalId });
+  } catch (error) {
+    dispatch({ type: 'SET_ERRORS', payload: error });
+  }
+};

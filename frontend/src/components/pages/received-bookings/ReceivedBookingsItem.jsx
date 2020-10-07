@@ -18,7 +18,10 @@ const ReceivedBookingsItem = ({ booking }) => {
       <div className='MyBookingsItem'>
         <div className='MyBookingsItem__img'>
           <img src={booking.rental.image} alt='' />
-          {/* <button>Cancel</button> */}
+          <div>
+            <button>Cancel</button>
+            <button className='accept__btn'>Accept</button>
+          </div>
         </div>
         <div className='MyBookingsItem__body'>
           <h2>{booking.rental.title}</h2>

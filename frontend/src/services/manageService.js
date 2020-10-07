@@ -1,3 +1,4 @@
+import { extractApiErrors } from 'helpers/functions';
 import axiosService from './axiosService';
 const { freshbnbAxios } = axiosService;
 
@@ -28,8 +29,18 @@ const queryRecievedBookings = async () => {
   }
 };
 
+const deleteRental = async (rentalId) => {
+  try {
+    const res = await freshbnbAxios.delete(`/rentals/${rentalId}`);
+    return res.data;
+  } catch (error) {
+    return Promise.reject(extractApiErrors(error.response || {}));
+  }
+};
+
 export default {
   queryRentals,
   queryBookings,
   queryRecievedBookings,
+  deleteRental,
 };

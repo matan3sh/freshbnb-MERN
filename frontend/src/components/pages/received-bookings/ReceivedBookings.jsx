@@ -21,18 +21,21 @@ const ReceivedBookings = ({
     };
   }, [loadReceivedBookings, clearReceivedBookings]);
 
+  const onRender = () => {
+    if (receivedBookings === null) return <Spinner />;
+    else if (!receivedBookings?.length)
+      return <h1 className='no-rentals'>There Is No Bookings</h1>;
+  };
+
   return (
     <>
       <ManageNavigation />
       <h2 className='manage__title'>Pending Bookings</h2>
       <div className='MyBookingsItem__container'>
-        {receivedBookings === null && <Spinner />}
         {receivedBookings?.map((booking) => (
           <ReceivedBookingsItem key={booking._id} booking={booking} />
         ))}
-        {!receivedBookings?.length && (
-          <h1 className='no-rentals'>There Is No Bookings</h1>
-        )}
+        {onRender()}
       </div>
     </>
   );

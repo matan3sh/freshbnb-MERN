@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { connect } from 'react-redux';
+import { deleteMyRental } from 'store/manage/actions';
+
 import { FavoriteBorderIcon, StarIcon, RoomIcon } from 'components/icons';
 
-const MyRentalItem = ({ rental }) => {
+const MyRentalItem = ({ rental, deleteMyRental }) => {
   const onDelete = (rentalId) => {
     const canDelete = askForPermission();
     if (!canDelete) return;
-    alert('Deleting');
+    deleteMyRental(rentalId);
   };
 
   const askForPermission = () =>
@@ -58,4 +61,8 @@ const MyRentalItem = ({ rental }) => {
   );
 };
 
-export default MyRentalItem;
+const mapDispatchToProps = {
+  deleteMyRental,
+};
+
+export default connect(null, mapDispatchToProps)(MyRentalItem);
