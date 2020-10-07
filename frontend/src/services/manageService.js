@@ -1,7 +1,7 @@
 import axiosService from './axiosService';
 const { freshbnbAxios } = axiosService;
 
-const query = async () => {
+const queryRentals = async () => {
   try {
     const res = await freshbnbAxios.get('/rentals/me');
     return res.data;
@@ -10,6 +10,26 @@ const query = async () => {
   }
 };
 
+const queryBookings = async () => {
+  try {
+    const res = await freshbnbAxios.get('/bookings/me');
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const queryRecievedBookings = async () => {
+  try {
+    const res = await freshbnbAxios.get('/bookings/received');
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export default {
-  query,
+  queryRentals,
+  queryBookings,
+  queryRecievedBookings,
 };

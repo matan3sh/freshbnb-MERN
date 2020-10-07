@@ -29,3 +29,6 @@ export { default as StreetviewIcon } from '@material-ui/icons/Streetview';
 export { default as ImageIcon } from '@material-ui/icons/Image';
 export { default as BurstModeIcon } from '@material-ui/icons/BurstMode';
 export { default as FaceIcon } from '@material-ui/icons/Face';
+export { default as DateRangeIcon } from '@material-ui/icons/DateRange';
+export { default as NightsStayIcon } from '@material-ui/icons/NightsStay';
+export { default as BookIcon } from '@material-ui/icons/Book';

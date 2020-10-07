@@ -15,21 +15,20 @@ const MyRentals = ({ loadMyRentals, clearMyRentals, myRentals }) => {
   }, [loadMyRentals, clearMyRentals]);
 
   return (
-    <div className='browseList'>
-      <div className='myRentals__nav'>
-        <ManageNavigation />
-      </div>
-      {myRentals === null ? (
-        <Spinner />
-      ) : (
-        myRentals?.map((rental, index) => (
+    <>
+      <ManageNavigation />
+      <h2 className='manage__title'>My Rentals</h2>
+
+      <div className='browseList'>
+        {myRentals === null && <Spinner />}
+        {myRentals?.map((rental, index) => (
           <MyRentalItem rental={rental} key={index} />
-        ))
-      )}
-      {!myRentals?.length && (
-        <h1 className='no-rentals'>There Is No Rentals</h1>
-      )}
-    </div>
+        ))}
+        {!myRentals?.length && (
+          <h1 className='no-rentals'>There Is No Rentals</h1>
+        )}
+      </div>
+    </>
   );
 };
 

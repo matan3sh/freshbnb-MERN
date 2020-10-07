@@ -1,5 +1,5 @@
 const initialState = {
-  rentals: [],
+  rentals: null,
   rental: null,
 };
 

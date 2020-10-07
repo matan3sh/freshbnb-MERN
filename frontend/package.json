@@ -23,6 +23,7 @@
     "react-date-range": "^1.0.3",
     "react-dom": "^16.13.1",
     "react-hook-form": "^6.8.6",
+    "react-moment": "^1.0.0",
     "react-redux": "^7.2.0",
     "react-responsive-modal": "^5.1.1",
     "react-router-dom": "^5.2.0",

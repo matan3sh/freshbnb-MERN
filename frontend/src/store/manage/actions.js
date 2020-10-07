@@ -2,7 +2,7 @@ import manageService from 'services/manageService';
 
 export const loadMyRentals = () => async (dispatch) => {
   try {
-    const myRentals = await manageService.query();
+    const myRentals = await manageService.queryRentals();
     dispatch({ type: 'SET_MY_RENTALS', payload: myRentals });
   } catch (err) {
     console.log(err);
@@ -12,6 +12,40 @@ export const loadMyRentals = () => async (dispatch) => {
 export const clearMyRentals = () => async (dispatch) => {
   try {
     dispatch({ type: 'CLEAR_MY_RENTALS' });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const loadMyBookings = () => async (dispatch) => {
+  try {
+    const myBookings = await manageService.queryBookings();
+    dispatch({ type: 'SET_MY_BOOKINGS', payload: myBookings });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const clearMyBookings = () => async (dispatch) => {
+  try {
+    dispatch({ type: 'CLEAR_MY_BOOKINGS' });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const loadReceivedBookings = () => async (dispatch) => {
+  try {
+    const receivedBookings = await manageService.queryRecievedBookings();
+    dispatch({ type: 'SET_RECEIVED_BOOKINGS', payload: receivedBookings });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const clearReceivedBookings = () => async (dispatch) => {
+  try {
+    dispatch({ type: 'CLEAR_RECEIVED_BOOKINGS' });
   } catch (err) {
     console.log(err);
   }

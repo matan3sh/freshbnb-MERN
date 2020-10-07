@@ -1,0 +1,87 @@
+.MyBookingsItem__container {
+  margin: 0;
+  min-height: 80vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+.MyBookingsItem {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px;
+  margin: 25px;
+
+  .MyBookingsItem__img {
+    position: relative;
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    button {
+      position: absolute;
+      top: 0px;
+      left: 5px;
+      background-color: rgb(230, 30, 77);
+      color: #fff;
+      font-weight: 600;
+      font-size: 12px;
+      text-align: center;
+      cursor: pointer;
+      padding: 5px 10px;
+      border: 1px rgb(230, 30, 77) solid;
+      border-radius: 12px;
+      margin: 0.5rem 0;
+      transition: 200ms all ease-in;
+
+      &:hover {
+        background-color: #fff;
+        border: 1px rgb(230, 30, 77) solid;
+        color: rgb(230, 30, 77);
+      }
+    }
+  }
+
+  h2 {
+    font-size: 16px;
+    text-transform: capitalize;
+    font-family: Cereal-Bold, sans-serif;
+  }
+
+  p {
+    margin-left: auto;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-top: 5px;
+
+    span {
+      color: rgb(230, 30, 77);
+    }
+  }
+}
+
+.MyBookingsItem__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  min-height: 150px;
+}
+
+.MyBookingsItem__body-specs {
+  margin-top: 15px;
+  div {
+    display: flex;
+    align-items: center;
+
+    span {
+      font-size: 14px;
+    }
+
+    svg {
+      margin-right: 5px;
+    }
+  }
+}
