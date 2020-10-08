@@ -30,7 +30,6 @@
 
   .reviews__card {
     margin: 0.5rem 0;
-    border-bottom: #ccc dotted 1px;
     padding: 20px;
     width: 80%;
 
@@ -51,6 +50,10 @@
   }
 }
 
+.reviews__container .reviews__card:not(:last-child) {
+  border-bottom: #ccc dotted 1px;
+}
+
 .reviews__container::-webkit-scrollbar {
   display: none;
 }
@@ -66,4 +69,11 @@
   font-size: 12px;
   font-family: Cereal-Bold;
   color: #333;
+}
+
+@media screen and (max-width: 1108px) {
+  .reviews__container {
+    max-height: 100%;
+    overflow: hidden;
+  }
 }

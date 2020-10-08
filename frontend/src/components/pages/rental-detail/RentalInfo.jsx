@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import RentalDetailReviews from './RentalDetailReviews';
 import { FaceIcon } from 'components/icons';
 import RentalDetailAssets from './RentalDetailAssets';
+import RentalDetailAddReview from './RentalDetailAddReview';
 
 const RentalInfo = ({
   description,
@@ -11,6 +12,11 @@ const RentalInfo = ({
   owner,
   rentalId,
 }) => {
+  const [open, setOpen] = useState(false);
+
+  const onOpen = () => setOpen(true);
+  const onClose = () => setOpen(false);
+
   return (
     <div className='rentalDetail__body-left'>
       <div className='rentalDetail__body-top'>
@@ -28,8 +34,9 @@ const RentalInfo = ({
       <hr />
       <div className='reviews__header'>
         <h2>Reviews</h2>
-        <button>Add Review</button>
+        <button onClick={onOpen}>Add Review</button>
       </div>
+      <RentalDetailAddReview onCloseModal={onClose} open={open} />
       <RentalDetailReviews rentalId={rentalId} />
     </div>
   );
