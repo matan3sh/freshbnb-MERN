@@ -68,3 +68,12 @@ export const deleteMyBooking = (bookingId) => async (dispatch) => {
     dispatch({ type: 'SET_ERRORS', payload: error });
   }
 };
+
+export const updateMyRental = (rental, rentalId) => async (dispatch) => {
+  try {
+    const updatedRental = await manageService.updateRental(rental, rentalId);
+    dispatch({ type: 'UPDATE_MY_RENTAL', payload: updatedRental });
+  } catch (error) {
+    dispatch({ type: 'SET_ERRORS', payload: error });
+  }
+};

@@ -1,11 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { updateMyRental } from 'store/manage/actions';
+
 import { Modal } from 'react-responsive-modal';
 import UpdateRentalForm from 'components/forms/UpdateRentalForm';
 
-const MyRentalUpdate = ({ open, onCloseModal, rental }) => {
-  const onUpdateRental = (event, rental) => {
+const MyRentalUpdate = ({ open, onCloseModal, rental, updateMyRental }) => {
+  const onUpdateRental = (event, rentalData) => {
     event.preventDefault();
-    console.log(rental);
+    rentalData.shared = 'true' ? true : false;
+    updateMyRental(rentalData, rental._id);
+    onCloseModal();
   };
 
   return (
@@ -25,4 +30,8 @@ const MyRentalUpdate = ({ open, onCloseModal, rental }) => {
   );
 };
 
-export default MyRentalUpdate;
+const mapDispatchToProps = {
+  updateMyRental,
+};
+
+export default connect(null, mapDispatchToProps)(MyRentalUpdate);

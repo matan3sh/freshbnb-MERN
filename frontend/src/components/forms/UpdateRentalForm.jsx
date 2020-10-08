@@ -80,7 +80,7 @@ const UpdateRentalForm = ({ onSubmit, rentalToUpdate }) => {
             name='numOfRooms'
             value={rental.numOfRooms}
             onChange={(e) =>
-              setRental({ ...rental, numOfRooms: e.target.value })
+              setRental({ ...rental, numOfRooms: parseInt(e.target.value) })
             }
             placeholder='Number of Rooms'
           />
@@ -179,7 +179,7 @@ const UpdateRentalForm = ({ onSubmit, rentalToUpdate }) => {
               name='dailyPrice'
               value={rental.dailyPrice}
               onChange={(e) =>
-                setRental({ ...rental, dailyPrice: e.target.value })
+                setRental({ ...rental, dailyPrice: parseInt(e.target.value) })
               }
               placeholder='Daily Price'
             />
@@ -187,7 +187,7 @@ const UpdateRentalForm = ({ onSubmit, rentalToUpdate }) => {
           </div>
         </div>
       </div>
-      <Button type='submit' text='Add' />
+      <Button type='submit' text='Update' />
     </form>
   );
 };

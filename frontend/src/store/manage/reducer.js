@@ -43,6 +43,13 @@ export default function reducer(state = initialState, action) {
           (rental) => rental._id !== action.payload
         ),
       };
+    case 'UPDATE_MY_RENTAL':
+      return {
+        ...state,
+        myRentals: state.myRentals.map((rental) =>
+          rental._id === action.payload._id ? action.payload : rental
+        ),
+      };
     case 'DELETE_MY_BOOKING':
       return {
         ...state,

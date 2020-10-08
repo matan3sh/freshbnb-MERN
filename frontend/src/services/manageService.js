@@ -47,10 +47,20 @@ const deleteBooking = async (bookingId) => {
   }
 };
 
+const updateRental = async (rental, rentalId) => {
+  try {
+    const res = await freshbnbAxios.patch(`/rentals/${rentalId}`, rental);
+    return res.data;
+  } catch (error) {
+    return Promise.reject(extractApiErrors(error.response || {}));
+  }
+};
+
 export default {
   queryRentals,
   queryBookings,
   queryRecievedBookings,
   deleteRental,
   deleteBooking,
+  updateRental,
 };
