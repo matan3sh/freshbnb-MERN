@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from 'providers/AuthProvider';
 
 import {
-  PersonIcon,
+  // PersonIcon,
   SettingsApplicationsIcon,
   ExitToAppIcon,
   BusinessIcon,

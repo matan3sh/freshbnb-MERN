@@ -8,7 +8,7 @@ import {
   ApartmentIcon,
   EmojiPeopleIcon,
   WebIcon,
-  PersonIcon,
+  // PersonIcon,
   SettingsApplicationsIcon,
   ExitToAppIcon,
 } from 'components/icons';

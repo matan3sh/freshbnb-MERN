@@ -31,6 +31,9 @@ app.use('/api/bookings', bookingRoutes);
 const imageUploadRoutes = require('./api/image-upload/image-upload.routes');
 app.use('/api/image-upload', imageUploadRoutes);
 
+const reviewRoutes = require('./api/review/review.routes');
+app.use('/api/reviews', reviewRoutes);
+
 // Connect Database
 connectDB();
 

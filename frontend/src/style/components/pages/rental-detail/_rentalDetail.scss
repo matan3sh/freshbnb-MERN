@@ -157,7 +157,7 @@
 .rentalDetail__assets {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin-top: 1rem;
+  margin: 1rem 0;
   margin-left: 1rem;
   div {
     display: flex;
@@ -256,7 +256,7 @@
 
   .rentalDetail__body-right {
     margin: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
   }
 
   .rentalDetail__body-left hr {
@@ -264,7 +264,8 @@
   }
 
   .rentalDetail__body-left {
-    margin-bottom: 1rem;
+    margin-bottom: 4rem;
+    order: 2;
   }
 
   .rentalDetail__header {
@@ -286,7 +287,7 @@
 
 @media screen and (max-width: 1110px) {
   .rentalDetail__body-right {
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
   }
 }
 

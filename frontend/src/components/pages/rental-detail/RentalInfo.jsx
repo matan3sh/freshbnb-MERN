@@ -1,5 +1,5 @@
 import React from 'react';
-
+import RentalDetailReviews from './RentalDetailReviews';
 import { FaceIcon } from 'components/icons';
 import RentalDetailAssets from './RentalDetailAssets';
 
@@ -19,6 +19,11 @@ const RentalInfo = ({ description, shared, category, numOfRooms, owner }) => {
       </div>
       <RentalDetailAssets />
       <hr />
+      <div className='reviews__header'>
+        <h2>Reviews</h2>
+        <button>Add Review</button>
+      </div>
+      <RentalDetailReviews />
     </div>
   );
 };
