@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 
+import { FileLoader } from 'components/file-upload';
 import { Button } from 'components/app';
 import {
   LocalAtmIcon,
   LocationCityIcon,
   StreetviewIcon,
-  ImageIcon,
   BurstModeIcon,
 } from 'components/icons';
 
@@ -16,7 +16,11 @@ const Error = ({ children }) => (
 );
 
 const AddRentalForm = ({ onSubmit }) => {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors, setValue } = useForm();
+
+  useEffect(() => {
+    register({ name: 'image' });
+  }, [register]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -135,23 +139,7 @@ const AddRentalForm = ({ onSubmit }) => {
             <option value={false}>No</option>
           </select>
         </div>
-        <div className='input'>
-          <div className='icon-input'>
-            <input
-              ref={register({
-                required: 'Cover Image is Required',
-              })}
-              type='text'
-              name='image'
-              id='image'
-              placeholder='Cover Image URL'
-            />
-            <ImageIcon />
-          </div>
-          <ErrorMessage as={<Error />} errors={errors} name='image'>
-            {({ message }) => <p>{message}</p>}
-          </ErrorMessage>
-        </div>
+        <FileLoader onFileUpload={(imageId) => setValue('image', imageId)} />
         <div className='input '>
           <div className='icon-input'>
             <input

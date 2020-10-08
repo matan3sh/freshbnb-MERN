@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { FileLoader } from 'components/file-upload';
 
 import { Button } from 'components/app';
 import {
   LocalAtmIcon,
   LocationCityIcon,
   StreetviewIcon,
-  ImageIcon,
   BurstModeIcon,
 } from 'components/icons';
 
@@ -111,18 +111,9 @@ const UpdateRentalForm = ({ onSubmit, rentalToUpdate }) => {
             <option value={false}>No</option>
           </select>
         </div>
-        <div className='input'>
-          <div className='icon-input'>
-            <input
-              type='text'
-              name='image'
-              value={rental.image}
-              onChange={(e) => setRental({ ...rental, image: e.target.value })}
-              placeholder='Cover Image URL'
-            />
-            <ImageIcon />
-          </div>
-        </div>
+        <FileLoader
+          onFileUpload={(imageId) => setRental({ ...rental, image: imageId })}
+        />
         <div className='input '>
           <div className='icon-input'>
             <input

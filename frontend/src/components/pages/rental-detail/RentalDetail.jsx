@@ -32,7 +32,7 @@ const RentalDetail = ({ match, loadRental, clearRental, rental }) => {
             street={rental?.street}
           />
           <RentalDetailGallery
-            coverImage={rental?.image}
+            coverImage={rental?.image.url}
             images={rental?.images}
           />
           <div className='rentalDetail__body'>

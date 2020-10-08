@@ -70,7 +70,7 @@ getByUser = async (res) => {
   try {
     const bookings = await Booking.find({ user })
       .populate('user', '-password')
-      .populate('rental');
+      .populate({ path: 'rental', populate: { path: 'image' } });
     return res.json(bookings);
   } catch (error) {
     return res.mongoError(error);
@@ -84,7 +84,7 @@ getPendingBookings = async (res) => {
     const rentalIds = rentals.map((rental) => rental._id);
     const bookings = await Booking.find({ rental: { $in: rentalIds } })
       .populate('user', '-password')
-      .populate('rental');
+      .populate({ path: 'rental', populate: { path: 'image' } });
     return res.json(bookings);
   } catch (error) {
     return res.mongoError(error);

@@ -15,11 +15,11 @@ const Dropdown = () => {
   return (
     <div className='dropdown'>
       <ul>
-        <li>
+        {/* <li>
           <Link to='/profile'>
             <PersonIcon /> Profile
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link to='/all/browse'>
             <BusinessIcon />

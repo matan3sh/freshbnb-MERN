@@ -7,7 +7,7 @@ const BrowseItem = ({ rental }) => {
   return (
     <Link to={`/rentals/${rental._id}`} id='item'>
       <div className='browseItem'>
-        <img src={rental.image} alt='' />
+        <img src={rental.image.url} alt='' />
         <FavoriteBorderIcon className='browseItem__heart' />
         <div className='browseItem__info'>
           <div className='browseItem__infoTop'>

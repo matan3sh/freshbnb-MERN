@@ -4,7 +4,7 @@ const Rental = require('../../models/rental');
 query = async (city, res) => {
   const criteria = city ? { city: city.toLowerCase() } : {};
   try {
-    const rentals = await Rental.find(criteria);
+    const rentals = await Rental.find(criteria).populate('image');
     return res.json(rentals);
   } catch (error) {
     return res.mongoError(error);
@@ -13,10 +13,9 @@ query = async (city, res) => {
 
 getById = async (id, res) => {
   try {
-    const rental = await Rental.findById(id).populate(
-      'owner',
-      '-password -_id'
-    );
+    const rental = await Rental.findById(id)
+      .populate('owner', '-password -_id')
+      .populate('image');
     res.json(rental);
   } catch (error) {
     return res.mongoError(error);
@@ -38,7 +37,7 @@ add = async (rental, res) => {
 getByUser = async (res) => {
   const { user } = res.locals;
   try {
-    const rentals = await Rental.find({ owner: user.id });
+    const rentals = await Rental.find({ owner: user.id }).populate('image');
     return res.json(rentals);
   } catch (error) {
     return res.mongoError(error);

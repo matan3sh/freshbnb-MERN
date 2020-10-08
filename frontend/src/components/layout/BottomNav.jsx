@@ -66,7 +66,7 @@ const BottomNav = ({ user, isAuth }) => {
         <WebIcon />
         <span className='navBottom__text'>Browse</span>
       </NavLink>
-      <NavLink
+      {/* <NavLink
         to='/profile'
         exact
         className='navBottom__link'
@@ -74,7 +74,7 @@ const BottomNav = ({ user, isAuth }) => {
       >
         <PersonIcon />
         <span className='navBottom__text'>Profile</span>
-      </NavLink>
+      </NavLink> */}
       <NavLink
         to='/manage'
         exact

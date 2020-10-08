@@ -14,7 +14,6 @@ const Browse = ({ match }) => {
   return (
     <div className='browse'>
       <div className='browse__info'>
-        <p>62 stays &bull; 26 august to 30 august &bull; 2 guest</p>
         <h1>
           {searchLocation === 'all'
             ? 'Stays Nearby'
@@ -24,7 +23,7 @@ const Browse = ({ match }) => {
         <Button variant='outlined'>Type Of Place</Button>
         <Button variant='outlined'>Price</Button>
         <Button variant='outlined'>Rooms and Beds</Button>
-        <Button variant='outlined'>More Filters</Button>
+        <Button variant='outlined'>Housekeeping</Button>
       </div>
       {searchLocation && <BrowseList location={searchLocation} />}
     </div>

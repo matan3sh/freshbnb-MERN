@@ -4,11 +4,10 @@ const Spinner = () => (
   <img src={spinner} alt='Loading...' style={loaderStyle} />
 );
 const loaderStyle = {
-  width: '400px',
+  width: '100%',
   objectFit: 'contain',
   display: 'flex',
   margin: 'auto',
-  height: '100vh',
   justifyContent: 'center',
   alignItems: 'center',
 };

@@ -29,7 +29,7 @@ const MyBookingsItem = ({ booking, deleteMyBooking }) => {
   return (
     <div className='MyBookingsItem'>
       <div className='MyBookingsItem__img'>
-        <img src={booking.rental.image} alt='' />
+        <img src={booking.rental.image.url} alt='' />
         <div>
           <button onClick={() => onDelete(booking._id)}>Cancel</button>
         </div>
