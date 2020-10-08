@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const auth = require('../../middlewares/auth');
+const CloudinaryImage = require('../../models/image');
 
+const auth = require('../../middlewares/auth');
+const { dataUri } = require('../../middlewares/dataUri');
+const { cloudUpload } = require('../../middlewares/cloudinary');
 const upload = require('../../middlewares/multer');
 const singleUpload = upload.single('image');
 
@@ -18,15 +21,21 @@ const singleUploadCtrl = (req, res, next) => {
   });
 };
 
-router.post('', auth, singleUploadCtrl, (req, res) => {
+router.post('', auth, singleUploadCtrl, async (req, res) => {
   try {
     if (!req.file) throw new Error('Image is not presented!');
-    console.log(req.file);
-    return res.json({ message: 'Uploading File...!' });
+    const file64 = dataUri(req.file);
+    const result = await cloudUpload(file64.content);
+    const cImage = new CloudinaryImage({
+      url: result.secure_url,
+      cloudinaryId: result.public_id,
+    });
+    const savedImage = await cImage.save();
+    return res.json({ _id: savedImage.id, url: savedImage.url });
   } catch (error) {
     return res.sendApiError({
       title: 'Upload Error',
-      detail: 'Ooops, something went wrong with image upload!',
+      detail: error.message,
     });
   }
 });

@@ -15,7 +15,6 @@ const rentalSchema = new Schema({
     minlength: [4, 'Invalid length! Minimum is 4 characters'],
   },
   category: { type: String, required: true, lowercase: true },
-  image: { type: String, required: true },
   images: [{ type: String, required: true }],
   numOfRooms: { type: Number, required: true },
   shared: { type: Boolean, required: true },
@@ -23,6 +22,7 @@ const rentalSchema = new Schema({
   dailyPrice: { type: Number, required: true },
   star: { type: Number, default: 0 },
   createdAt: { type: Date, default: Date.now },
+  image: { type: Schema.Types.ObjectId, ref: 'Image' },
   owner: { type: Schema.Types.ObjectId, ref: 'User' },
 });
 

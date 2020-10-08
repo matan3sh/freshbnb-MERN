@@ -3,6 +3,31 @@ const mongoose = require('mongoose');
 const user1Id = mongoose.Types.ObjectId();
 const user2Id = mongoose.Types.ObjectId();
 
+const image1Id = mongoose.Types.ObjectId();
+const image2Id = mongoose.Types.ObjectId();
+const image3Id = mongoose.Types.ObjectId();
+
+exports.images = [
+  {
+    _id: image1Id,
+    cloudinaryId: 'norbert-levajsics-oTJ92KUXHls-unsplash',
+    url:
+      'https://res.cloudinary.com/dwymjj6rm/image/upload/v1602148577/norbert-levajsics-oTJ92KUXHls-unsplash.jpg',
+  },
+  {
+    _id: image2Id,
+    cloudinaryId: 'deborah-cortelazzi-gREquCUXQLI-unsplash',
+    url:
+      'https://res.cloudinary.com/dwymjj6rm/image/upload/v1602148577/deborah-cortelazzi-gREquCUXQLI-unsplash.jpg',
+  },
+  {
+    _id: image3Id,
+    cloudinaryId: 'patrick-perkins-3wylDrjxH-E-unsplash',
+    url:
+      'https://res.cloudinary.com/dwymjj6rm/image/upload/v1602148577/patrick-perkins-3wylDrjxH-E-unsplash.jpg',
+  },
+];
+
 exports.users = [
   {
     _id: user1Id,
@@ -31,8 +56,7 @@ exports.rentals = [
     city: 'new york',
     street: '5th avenue',
     category: 'apartment',
-    image:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_wbPYTxQPMcBh7SPzLFActXnP3uhifeVT_g&usqp=CAU',
+    image: image1Id,
     numOfRooms: 1,
     shared: false,
     description: 'Very nice apartment in center of the city of new york.',
@@ -51,8 +75,7 @@ exports.rentals = [
     city: 'san francisco',
     street: 'collison',
     category: 'condo',
-    image:
-      'https://www.expatkings.com/wp-content/uploads/2018/10/Airbnb-rental-tips.-Hostmaker-1-620x349.jpg',
+    image: image2Id,
     numOfRooms: 2,
     shared: true,
     description: 'Very nice condo new the golden gate',
@@ -71,8 +94,7 @@ exports.rentals = [
     city: 'paris',
     street: 'Jackson street',
     category: 'apartment',
-    image:
-      'https://www.smartertravel.com/uploads/2017/07/Untitled-design-8.jpg',
+    image: image3Id,
     numOfRooms: 3,
     shared: true,
     description: 'Greate apartment in center of paris',
