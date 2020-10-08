@@ -1,6 +1,7 @@
 .reviews__header {
   display: flex;
   align-items: center;
+  margin-bottom: 0.5rem;
   button {
     margin-left: 60px;
     padding: 0 5px;
@@ -51,8 +52,18 @@
 }
 
 .reviews__container::-webkit-scrollbar {
+  display: none;
 }
 
 .reviews__card-icon {
   color: rgb(230, 30, 77) !important;
+}
+
+.no-reviews {
+  margin: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-family: Cereal-Bold;
+  color: #333;
 }

@@ -1,69 +1,20 @@
 import React from 'react';
 import Rating from '@material-ui/lab/Rating';
 
-const RentalDetailReviewsItem = () => {
+const RentalDetailReviewsItem = ({ review }) => {
   return (
-    <>
-      <div className='reviews__card'>
-        <h3>Matan Shaviro</h3>
-        <Rating
-          name='read-only'
-          value={2}
-          readOnly
-          className='reviews__card-icon'
-        />
-        <h5>08-10-2020</h5>
-        <p>Great!</p>
-      </div>
-      <div className='reviews__card'>
-        <h3>John Doe</h3>
-        <Rating
-          name='read-only'
-          value={2}
-          readOnly
-          className='reviews__card-icon'
-        />
-
-        <h5>08-10-2020</h5>
-        <p>Exellent!</p>
-      </div>
-      <div className='reviews__card'>
-        <h3>John Doe</h3>
-        <Rating
-          name='read-only'
-          value={2}
-          readOnly
-          className='reviews__card-icon'
-        />
-
-        <h5>08-10-2020</h5>
-        <p>Exellent!</p>
-      </div>
-      <div className='reviews__card'>
-        <h3>John Doe</h3>
-        <Rating
-          name='read-only'
-          value={2}
-          readOnly
-          className='reviews__card-icon'
-        />
-
-        <h5>08-10-2020</h5>
-        <p>Exellent!</p>
-      </div>
-      <div className='reviews__card'>
-        <h3>John Doe</h3>
-        <Rating
-          name='read-only'
-          value={2}
-          readOnly
-          className='reviews__card-icon'
-        />
-
-        <h5>08-10-2020</h5>
-        <p>Exellent!</p>
-      </div>
-    </>
+    <div className='reviews__card'>
+      <h3>{review.user}</h3>
+      <Rating
+        name='read-only'
+        value={review.rate}
+        readOnly
+        className='reviews__card-icon'
+        precision={0.1}
+      />
+      <h5>{review.createdAt}</h5>
+      <p>{review.text}</p>
+    </div>
   );
 };
 

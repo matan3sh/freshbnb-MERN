@@ -3,7 +3,14 @@ import RentalDetailReviews from './RentalDetailReviews';
 import { FaceIcon } from 'components/icons';
 import RentalDetailAssets from './RentalDetailAssets';
 
-const RentalInfo = ({ description, shared, category, numOfRooms, owner }) => {
+const RentalInfo = ({
+  description,
+  shared,
+  category,
+  numOfRooms,
+  owner,
+  rentalId,
+}) => {
   return (
     <div className='rentalDetail__body-left'>
       <div className='rentalDetail__body-top'>
@@ -23,7 +30,7 @@ const RentalInfo = ({ description, shared, category, numOfRooms, owner }) => {
         <h2>Reviews</h2>
         <button>Add Review</button>
       </div>
-      <RentalDetailReviews />
+      <RentalDetailReviews rentalId={rentalId} />
     </div>
   );
 };
