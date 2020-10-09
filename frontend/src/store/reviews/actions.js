@@ -9,18 +9,10 @@ export const getReviews = (rentalId) => async (dispatch) => {
   }
 };
 
-export const addReview = (review) => async (dispatch) => {
+export const addReview = (review, rate) => async (dispatch) => {
   try {
     const newReview = await reviewsService.add(review);
-    dispatch({ type: 'ADD_REVIEW', payload: newReview });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export const updateRate = (rate) => async (dispatch) => {
-  try {
-    dispatch({ type: 'UPDATE_RATE', payload: rate });
+    dispatch({ type: 'ADD_REVIEW', payload: { review: newReview, rate } });
   } catch (error) {
     console.log(error);
   }

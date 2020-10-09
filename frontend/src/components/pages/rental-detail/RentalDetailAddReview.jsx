@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addReview, updateRate } from 'store/reviews/actions';
+import { addReview } from 'store/reviews/actions';
 import Rating from '@material-ui/lab/Rating';
 import { Modal } from 'react-responsive-modal';
 import { Button } from 'components/app';
@@ -11,7 +11,7 @@ const RentalDetailAddReview = ({
   user,
   rental,
   addReview,
-  updateRate,
+  reviews,
 }) => {
   // eslint-disable-next-line
   const [name, setName] = useState(user ? user.username : 'Guest');
@@ -26,8 +26,11 @@ const RentalDetailAddReview = ({
       text,
       rate,
     };
-    addReview(review);
-    updateRate(rate);
+    let rates = reviews?.map((review) => review.rate);
+    rates.push(rate);
+    let updatedRate =
+      rates.reduce((prev, curr) => prev + curr, 0) / rates.length;
+    addReview(review, updatedRate);
     onCloseModal();
   };
 
@@ -78,11 +81,11 @@ const RentalDetailAddReview = ({
 
 const mapStateToProps = (state) => ({
   user: state.authApp.user,
+  reviews: state.reviewsApp.reviews,
 });
 
 const mapDispatchToProps = {
   addReview,
-  updateRate,
 };
 
 export default connect(

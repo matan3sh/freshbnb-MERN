@@ -15,12 +15,8 @@ export default function reducer(state = initialState, action) {
     case 'ADD_REVIEW':
       return {
         ...state,
-        reviews: [action.payload, ...state.reviews],
-      };
-    case 'UPDATE_RATE':
-      return {
-        ...state,
-        rate: state.rate + action.payload / state.reviews.length + 1,
+        reviews: [action.payload.review, ...state.reviews],
+        rate: action.payload.rate,
       };
     default:
       return state;
