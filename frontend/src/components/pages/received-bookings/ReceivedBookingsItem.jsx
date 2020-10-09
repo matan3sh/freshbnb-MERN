@@ -8,19 +8,15 @@ import {
 } from 'components/icons';
 
 import Moment from 'react-moment';
-import moment from 'moment';
-import 'moment/locale/he';
-moment.locale('he');
+// import moment from 'moment';
+// import 'moment/locale/he';
+// moment.locale('he');
 
 const ReceivedBookingsItem = ({ booking }) => {
   return (
     <div className='MyBookingsItem'>
       <div className='MyBookingsItem__img'>
         <img src={booking.rental.image.url} alt='' />
-        {/* <div>
-          <button>Cancel</button>
-          <button className='accept__btn'>Accept</button>
-        </div> */}
       </div>
       <Link to={`/rentals/${booking.rental._id}`}>
         <div className='MyBookingsItem__body'>

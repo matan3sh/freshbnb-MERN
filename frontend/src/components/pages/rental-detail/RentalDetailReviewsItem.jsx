@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import Rating from '@material-ui/lab/Rating';
 
 const RentalDetailReviewsItem = ({ review }) => {
@@ -12,7 +13,7 @@ const RentalDetailReviewsItem = ({ review }) => {
         className='reviews__card-icon'
         precision={0.1}
       />
-      <h5>{review.createdAt}</h5>
+      <h5>{moment(review.createdAt).fromNow()}</h5>
       <p>{review.text}</p>
     </div>
   );

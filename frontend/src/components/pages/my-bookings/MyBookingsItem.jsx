@@ -12,9 +12,9 @@ import {
 } from 'components/icons';
 
 import Moment from 'react-moment';
-import moment from 'moment';
-import 'moment/locale/he';
-moment.locale('he');
+// import moment from 'moment';
+// import 'moment/locale/he';
+// moment.locale('he');
 
 const MyBookingsItem = ({ booking, deleteMyBooking }) => {
   const onDelete = (bookingId) => {
