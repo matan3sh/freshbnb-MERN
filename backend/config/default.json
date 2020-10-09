@@ -1,7 +1,0 @@
-{
-  "mongoURI": "mongodb+srv://matan:ma290190@promo.9o5fd.mongodb.net/freshbnb_db?retryWrites=true&w=majority",
-  "jwtSecret": "secret1990",
-  "CLOUDINARY_NAME": "dwymjj6rm",
-  "CLOUDINARY_KEY": "491593427772524",
-  "CLOUDINARY_SECRET": "LqY2N6BmWdA5nlLkChuhi0GAkKg"
-}
