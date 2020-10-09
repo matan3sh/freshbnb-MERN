@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { loadRental, clearRental } from 'store/rentals/actions';
+import { getReviews } from 'store/reviews/actions';
 
 import { Spinner } from 'components/shared';
 
@@ -10,15 +11,24 @@ import RentalDetailHeader from './RentalDetailHeader';
 import RentalDetailCard from './RentalDetailCard';
 import RentalInfo from './RentalInfo';
 
-const RentalDetail = ({ match, loadRental, clearRental, rental }) => {
+const RentalDetail = ({
+  match,
+  loadRental,
+  clearRental,
+  rental,
+  getReviews,
+  reviews,
+  rate,
+}) => {
   useEffect(() => {
     const { id } = match.params;
     loadRental(id);
+    getReviews(id);
     return () => {
       clearRental();
     };
     // eslint-disable-next-line
-  }, [loadRental, clearRental]);
+  }, [loadRental, clearRental, getReviews]);
 
   return (
     <div className='rentalDetail'>
@@ -30,6 +40,8 @@ const RentalDetail = ({ match, loadRental, clearRental, rental }) => {
             star={rental?.star}
             city={rental?.city}
             street={rental?.street}
+            rate={rate}
+            length={reviews?.length}
           />
           <RentalDetailGallery
             coverImage={rental?.image.url}
@@ -42,7 +54,7 @@ const RentalDetail = ({ match, loadRental, clearRental, rental }) => {
               shared={rental?.shared}
               numOfRooms={rental?.numOfRooms}
               owner={rental?.owner}
-              rentalId={rental?._id}
+              rental={rental}
             />
             <RentalDetailCard
               dailyPrice={rental?.dailyPrice}
@@ -50,6 +62,8 @@ const RentalDetail = ({ match, loadRental, clearRental, rental }) => {
               city={rental?.city}
               street={rental?.street}
               rental={rental?._id}
+              rate={rate}
+              length={reviews?.length}
             />
           </div>
         </>
@@ -62,11 +76,14 @@ const RentalDetail = ({ match, loadRental, clearRental, rental }) => {
 
 const mapStateToProps = (state) => ({
   rental: state.mainApp.rental,
+  reviews: state.reviewsApp.reviews,
+  rate: state.reviewsApp.rate,
 });
 
 const mapDispatchToProps = {
   loadRental,
   clearRental,
+  getReviews,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(RentalDetail);

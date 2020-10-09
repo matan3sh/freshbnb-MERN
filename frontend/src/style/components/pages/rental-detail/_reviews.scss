@@ -71,6 +71,16 @@
   color: #333;
 }
 
+.add__review-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  label {
+    font-family: Cereal-Bold;
+  }
+}
+
 @media screen and (max-width: 1108px) {
   .reviews__container {
     max-height: 100%;

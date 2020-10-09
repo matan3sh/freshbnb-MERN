@@ -1,14 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { getReviews } from 'store/reviews/actions';
 
 import RentalDetailReviewsItem from './RentalDetailReviewsItem';
 
-const RentalDetailReviews = ({ getReviews, rentalId, reviews }) => {
-  useEffect(() => {
-    getReviews(rentalId);
-  }, [getReviews, rentalId]);
-
+const RentalDetailReviews = ({ reviews }) => {
   return (
     <div className='reviews__container'>
       {!reviews?.length ? (
@@ -28,11 +23,4 @@ const mapStateToProps = (state) => ({
   reviews: state.reviewsApp.reviews,
 });
 
-const mapDispatchToProps = {
-  getReviews,
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(RentalDetailReviews);
+export default connect(mapStateToProps, null)(RentalDetailReviews);

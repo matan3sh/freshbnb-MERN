@@ -1,7 +1,7 @@
 import React from 'react';
 import { StarIcon, FavoriteBorderIcon, RoomIcon } from 'components/icons';
 
-const RentalDetailHeader = ({ title, star, city, street }) => {
+const RentalDetailHeader = ({ title, star, city, street, rate, length }) => {
   return (
     <div className='rentalDetail__header'>
       <div className='rentalDetail_left'>
@@ -9,8 +9,8 @@ const RentalDetailHeader = ({ title, star, city, street }) => {
         <div className='rentalDetail__subtitle'>
           <StarIcon className='rentalDetail__star' />
           <p>
-            <strong>{star}</strong>
-            <span>(185)</span>
+            <strong>{rate.toFixed(1)}</strong>
+            <span>({length})</span>
           </p>
           <span>·</span>
           <span className='rentalDetail__location'>

@@ -10,6 +10,16 @@ const getByRental = async (rentalId) => {
   }
 };
 
+const add = async (review) => {
+  try {
+    const res = await freshbnbAxios.post('/reviews', review);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export default {
   getByRental,
+  add,
 };

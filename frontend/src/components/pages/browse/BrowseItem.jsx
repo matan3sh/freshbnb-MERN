@@ -29,7 +29,7 @@ const BrowseItem = ({ rental }) => {
               <StarIcon className='browseItem__star' />
               <p>
                 <strong>
-                  {rental.star} <span>(185)</span>
+                  {rental.star} <span>(2)</span>
                 </strong>
               </p>
             </div>

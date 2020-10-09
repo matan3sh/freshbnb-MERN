@@ -4,7 +4,9 @@ const Rental = require('../../models/rental');
 query = async (city, res) => {
   const criteria = city ? { city: city.toLowerCase() } : {};
   try {
-    const rentals = await Rental.find(criteria).populate('image');
+    const rentals = await Rental.find(criteria)
+      .populate('image')
+      .sort({ createdAt: -1 });
     return res.json(rentals);
   } catch (error) {
     return res.mongoError(error);

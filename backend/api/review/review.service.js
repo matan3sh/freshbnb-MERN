@@ -3,7 +3,7 @@ const Review = require('../../models/review');
 getByRental = async (req, res) => {
   const { id } = req.params;
   try {
-    const reviews = await Review.find({ rental: id });
+    const reviews = await Review.find({ rental: id }).sort({ createdAt: -1 });
     return res.json(reviews);
   } catch (error) {
     return res.mongoError(error);

@@ -25,6 +25,8 @@ const RentalDetailCard = ({
   bookings,
   user,
   isAuth,
+  rate,
+  length,
 }) => {
   const [openModal, setOpenModal] = useState(false);
   const [guests, setGuests] = useState('');
@@ -93,8 +95,8 @@ const RentalDetailCard = ({
           <h3>${dailyPrice}/ night</h3>
           <div className='rentalDetail__priceCard-rating'>
             <StarIcon className='rentalDetail__star' />
-            <span>{star}</span>
-            <span>(186)</span>
+            <span>{rate.toFixed(1)}</span>
+            <span>({length})</span>
           </div>
         </div>
         <div className='rentalDetail__specs'>

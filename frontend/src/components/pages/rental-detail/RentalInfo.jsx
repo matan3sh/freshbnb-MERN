@@ -10,7 +10,7 @@ const RentalInfo = ({
   category,
   numOfRooms,
   owner,
-  rentalId,
+  rental,
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -36,8 +36,12 @@ const RentalInfo = ({
         <h2>Reviews</h2>
         <button onClick={onOpen}>Add Review</button>
       </div>
-      <RentalDetailAddReview onCloseModal={onClose} open={open} />
-      <RentalDetailReviews rentalId={rentalId} />
+      <RentalDetailAddReview
+        onCloseModal={onClose}
+        open={open}
+        rental={rental}
+      />
+      <RentalDetailReviews />
     </div>
   );
 };

@@ -17,7 +17,6 @@ import {
   MyBookings,
   ReceivedBookings,
 } from 'components/pages';
-import { ScrollToTop } from 'components/shared';
 import { Error } from 'components/app';
 
 const App = () => {
@@ -30,7 +29,6 @@ const App = () => {
   return (
     <Router>
       <Header />
-      <ScrollToTop />
       <Error />
       <Switch>
         <Route exact path='/:location/browse' component={Browse} />
