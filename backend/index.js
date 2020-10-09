@@ -1,11 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
+const cors = require('cors');
 const { provideErrorHandler } = require('./middlewares/errorHandler');
+const auth = require('./middlewares/auth');
 const connectDB = require('./config/db');
 
 const app = express();
-
-const auth = require('./middlewares/auth');
 
 // Middleware
 app.use(bodyParser.json());
@@ -36,6 +37,26 @@ app.use('/api/reviews', reviewRoutes);
 
 // Connect Database
 connectDB();
+
+// Production Middleware
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('public'));
+} else {
+  const corsOptions = {
+    origin: [
+      'http://127.0.0.1:3001',
+      'http://localhost:3001',
+      'http://127.0.0.1:3000',
+      'http://localhost:3000',
+    ],
+    credentials: true,
+  };
+  app.use(cors(corsOptions));
+}
+
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+});
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log('Server is listening on port:', PORT));
