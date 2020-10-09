@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const baseURL = process.env.NODE_ENV === 'production' ? '/api/' : '/api/';
+
 class AxiosService {
   axiosInstace = null;
 
@@ -9,7 +11,7 @@ class AxiosService {
 
   initInstance() {
     this.axiosInstace = axios.create({
-      baseURL: 'http://localhost:3000/api',
+      baseURL,
       timeout: 5000,
     });
     this.axiosInstace.interceptors.request.use((config) => {
