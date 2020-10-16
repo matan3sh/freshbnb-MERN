@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.565a3095.chunk.css",
+    "main.css": "/static/css/main.378960b2.chunk.css",
     "main.js": "/static/js/main.87703f90.chunk.js",
     "main.js.map": "/static/js/main.87703f90.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.69661472.js",
@@ -9,10 +9,10 @@
     "static/js/2.7d0c4dad.chunk.js": "/static/js/2.7d0c4dad.chunk.js",
     "static/js/2.7d0c4dad.chunk.js.map": "/static/js/2.7d0c4dad.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.1da612f3851700d5184ffd07c0bf210a.js": "/precache-manifest.1da612f3851700d5184ffd07c0bf210a.js",
+    "precache-manifest.a9cced14e84df6af52d44916545b497d.js": "/precache-manifest.a9cced14e84df6af52d44916545b497d.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.7af91db5.chunk.css.map": "/static/css/2.7af91db5.chunk.css.map",
-    "static/css/main.565a3095.chunk.css.map": "/static/css/main.565a3095.chunk.css.map",
+    "static/css/main.378960b2.chunk.css.map": "/static/css/main.378960b2.chunk.css.map",
     "static/js/2.7d0c4dad.chunk.js.LICENSE.txt": "/static/js/2.7d0c4dad.chunk.js.LICENSE.txt",
     "static/media/style.css": "/static/media/VarelaRound-Regular.7fac728d.ttf",
     "static/media/logo.png": "/static/media/logo.b59cfb4c.png",
@@ -22,7 +22,7 @@
     "static/js/runtime-main.69661472.js",
     "static/css/2.7af91db5.chunk.css",
     "static/js/2.7d0c4dad.chunk.js",
-    "static/css/main.565a3095.chunk.css",
+    "static/css/main.378960b2.chunk.css",
     "static/js/main.87703f90.chunk.js"
   ]
 }
